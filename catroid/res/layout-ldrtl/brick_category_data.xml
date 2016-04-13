@@ -26,7 +26,7 @@
 
     <TextView
         style="@style/BrickCategoryText.Data"
-        android:text="@string/category_data" >
+        android:text="@string/category_data">
     </TextView>
 
 </LinearLayout>

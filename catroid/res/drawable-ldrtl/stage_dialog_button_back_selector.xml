@@ -21,18 +21,14 @@
   ~ You should have received a copy of the GNU Affero General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"
+          android:drawable="@drawable/stage_dialog_button_back_pressed" /> <!-- pressed -->
+    <item android:state_focused="true"
+          android:drawable="@drawable/stage_dialog_button_back" /> <!-- focused -->
+    <item android:state_hovered="true"
+          android:drawable="@drawable/stage_dialog_button_back" /> <!-- hovered -->
+    <item android:drawable="@drawable/stage_dialog_button_back" /> <!-- default -->
+</selector>
 
-    
-    <item
-        android:id="@+id/menu_redo"
-        android:title="@string/redo"
-        android:showAsAction="ifRoom"
-        android:icon="@drawable/icon_redo" />
-    <item
-        android:id="@+id/menu_undo"
-        android:title="@string/undo"
-        android:showAsAction="ifRoom"
-        android:icon="@drawable/icon_undo" />
 
-</menu>

@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class BrickCategoryAdapter extends BaseAdapter {
 
 	@Override
 	public String getItem(int position) {
-		LinearLayout layout = (LinearLayout) (categories.get(position));
+		RelativeLayout layout = (RelativeLayout) (categories.get(position));
 		TextView textView = (TextView) layout.getChildAt(0);
 		return textView.getText().toString();
 	}

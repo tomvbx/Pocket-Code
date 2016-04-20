@@ -46,6 +46,7 @@
         android:id="@+id/program_menu_button_scripts"
         style="@style/ProgramMenuButton"
         android:layout_marginTop="3dp"
+        android:drawableStart="@drawable/ic_program_menu_scripts"
         android:drawableLeft="@drawable/ic_program_menu_scripts"
         android:drawableStart="@drawable/ic_program_menu_scripts"
         android:onClick="handleScriptsButton"

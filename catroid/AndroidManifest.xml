@@ -66,7 +66,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:name=".CatroidApplication"
-        android:theme="@style/Theme.Catroid" >
+        android:theme="@style/Theme.Catroid"
+        android:supportsRtl="true">
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
@@ -148,8 +149,7 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.ProgramMenuActivity"
-            android:screenOrientation="portrait"
-            android:supportsRtl="true" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ScriptActivity"
             android:screenOrientation="portrait"

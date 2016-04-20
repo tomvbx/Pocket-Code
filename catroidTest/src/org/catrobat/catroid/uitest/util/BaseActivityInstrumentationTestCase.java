@@ -36,6 +36,7 @@ import org.catrobat.catroid.io.StorageHandler;
 import org.catrobat.catroid.stage.StageListener;
 import org.catrobat.catroid.test.utils.Reflection;
 import org.catrobat.catroid.ui.MainMenuActivity;
+import org.catrobat.catroid.ui.ProgramMenuActivity;
 import org.catrobat.catroid.utils.UtilFile;
 import org.catrobat.catroid.utils.UtilZip;
 import org.catrobat.catroid.utils.Utils;
@@ -55,7 +56,7 @@ public abstract class BaseActivityInstrumentationTestCase<T extends Activity> ex
 
 	private boolean createSoloInSetUp;
 
-	public BaseActivityInstrumentationTestCase(Class<T> clazz) {
+	public BaseActivityInstrumentationTestCase(Class<ProgramMenuActivity> clazz) {
 		super(clazz);
 		this.clazz = clazz;
 

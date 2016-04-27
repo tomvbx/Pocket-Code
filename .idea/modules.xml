@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Pocket-Code.iml" filepath="$PROJECT_DIR$/Pocket-Code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pocket-Code.iml" filepath="$PROJECT_DIR$/Pocket-Code.iml" />
       <module fileurl="file://$PROJECT_DIR$/catroidSourceTest/catroidSourceTest.iml" filepath="$PROJECT_DIR$/catroidSourceTest/catroidSourceTest.iml" />
     </modules>
   </component>

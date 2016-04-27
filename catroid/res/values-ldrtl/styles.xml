@@ -317,8 +317,7 @@
 
     <style name="BrickCategoryText.Data">
         <item name="android:background">@drawable/brick_selection_background_data</item>
-        <item name="android:gravity">right</item>
-        <item name="android:drawableLeft">@drawable/main_menu_button_arrow_variables</item>
+        <item name="android:drawableLeft">@drawable/ldrtl_main_menu_button_arrow_variables</item>
     </style>
 
 

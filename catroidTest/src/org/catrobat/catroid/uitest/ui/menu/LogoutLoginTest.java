@@ -24,7 +24,6 @@ package org.catrobat.catroid.uitest.ui.menu;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.ui.MainMenuActivity;

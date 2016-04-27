@@ -45,7 +45,7 @@ public class BrickCategoryAdapter extends BaseAdapter {
 
 	@Override
 	public String getItem(int position) {
-		RelativeLayout layout = (RelativeLayout) (categories.get(position));
+		LinearLayout layout = (LinearLayout) (categories.get(position));
 		TextView textView = (TextView) layout.getChildAt(0);
 		return textView.getText().toString();
 	}

@@ -44,5 +44,5 @@ public class ProgramMenuActivityRtlTest extends ActivityInstrumentationTestCase2
 
 
 
-    }
 }
+        }

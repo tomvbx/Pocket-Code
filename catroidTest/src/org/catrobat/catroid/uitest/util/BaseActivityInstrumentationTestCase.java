@@ -56,7 +56,7 @@ public abstract class BaseActivityInstrumentationTestCase<T extends Activity> ex
 
 	private boolean createSoloInSetUp;
 
-	public BaseActivityInstrumentationTestCase(Class<ProgramMenuActivity> clazz) {
+	public BaseActivityInstrumentationTestCase(Class<T> clazz) {
 		super(clazz);
 		this.clazz = clazz;
 

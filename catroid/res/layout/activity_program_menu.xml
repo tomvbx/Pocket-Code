@@ -24,7 +24,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/progress_circle"
@@ -46,9 +46,11 @@
         android:id="@+id/program_menu_button_scripts"
         style="@style/ProgramMenuButton"
         android:layout_marginTop="3dp"
-        android:drawableStart="@drawable/ic_program_menu_scripts"
         android:drawableLeft="@drawable/ic_program_menu_scripts"
+        android:drawableStart="@drawable/ic_program_menu_scripts"
         android:onClick="handleScriptsButton"
+        android:textAlignment="viewStart"
+        android:layout_gravity="start"
         android:text="@string/scripts" />
 
     <Button
@@ -58,6 +60,8 @@
         android:drawableLeft="@drawable/ic_program_menu_looks"
         android:drawableStart="@drawable/ic_program_menu_looks"
         android:onClick="handleLooksButton"
+        android:textAlignment="viewStart"
+        android:layout_gravity="start"
         android:text="@string/looks" />
 
     <Button
@@ -67,6 +71,8 @@
         android:drawableLeft="@drawable/ic_program_menu_sounds"
         android:drawableStart="@drawable/ic_program_menu_sounds"
         android:onClick="handleSoundsButton"
+        android:textAlignment="viewStart"
+        android:layout_gravity="start"
         android:text="@string/sounds" />
 
     <include layout="@layout/bottom_bar" />

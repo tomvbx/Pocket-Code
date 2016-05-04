@@ -102,6 +102,19 @@ public class ProgramMenuActivityTest extends BaseActivityInstrumentationTestCase
 		}
 
 
+		solo.goBackToActivity(MainMenuActivity.class.getSimpleName());
+		assertTrue(solo.waitForActivity(MainMenuActivity.class.getSimpleName()));
+		solo.clickOnButton(getActivity().getString(R.string.main_menu_programs));
+		assertTrue(solo.waitForActivity(MyProjectsActivity.class.getSimpleName()));
+		solo.clickOnText(getActivity().getString(R.string.default_project_name));
+		//solo.clickInList(2);
+		assertTrue(solo.waitForActivity(ProjectActivity.class.getSimpleName()));
+		//solo.clickInList(2, 1);
+		solo.clickOnText(getActivity().getString(R.string.default_project_cloud_sprite_name_1));
+		assertTrue(solo.waitForActivity(ProgramMenuActivity.class.getSimpleName()));
+		assertTrue(UiTestUtils.clickOnTextInList(solo, solo.getString(R.string.sounds)));
+
+
 	}
 
 

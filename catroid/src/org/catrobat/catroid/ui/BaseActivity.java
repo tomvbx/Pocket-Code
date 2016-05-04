@@ -116,6 +116,10 @@ public class BaseActivity extends Activity {
 			case R.id.menu_login:
 				ProjectManager.getInstance().showSignInDialog(this, false);
 				return true;
+			case R.id.menu_datetime:
+				AboutDialogFragment timeDialog = new AboutDialogFragment();
+				timeDialog.show(getFragmentManager(), AboutDialogFragment.DIALOG_FRAGMENT_TAG);
+				return true;
 			default:
 				break;
 		}

@@ -228,4 +228,5 @@ public class ProgramMenuActivityTest extends BaseActivityInstrumentationTestCase
 		ProjectManager.getInstance().getFileChecksumContainer()
 				.addChecksum(soundInfo.getChecksum(), soundInfo.getAbsolutePath());
 	}
+
 }

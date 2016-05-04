@@ -1040,6 +1040,7 @@
     <string name="choose_camera_back">back</string>
     <string name="error_flash_front_camera">"The flash can be used with the back camera only. Please add a \"Use
         camera\" brick and change to your device\'s back camera. "</string>
+    <string name="activity_datetime_local">Date and  Time</string>
     <!-- -->
 
 </resources>

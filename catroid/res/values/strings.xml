@@ -78,6 +78,8 @@
     <!--  -->
 
 
+
+
     <!-- Main menu activity -->
     <string name="main_menu_new">New</string>
     <string name="main_menu_continue">Continue</string>
@@ -1042,4 +1044,96 @@
         camera\" brick and change to your device\'s back camera. "</string>
     <!-- -->
 
+    <!-- languages activity -->
+    <string name="preference_title_change_language">Change Language </string>
+
+    <string name="arabic">Arabic</string>
+    <string name="bosnian">Bosnian</string>
+    <string name="danish">Danish</string>
+    <string name="german">German</string>
+    <string name="english_Raute">English(Raute)</string>
+    <string name="english_Canada">English(Canada)</string>
+    <string name="english_United_Kingdom">English(United Kingdom)</string>
+    <string name="spanish">Spanish</string>
+    <string name="farsi">Farsi</string>
+    <string name="french">French</string>
+    <string name="gujarati">Gujarati</string>
+    <string name="hindi">Hindi</string>
+    <string name="croatian">Croatian</string>
+    <string name="hungarian">Hungarian</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="italian">Italian</string>
+    <string name="japanese">Japanese</string>
+    <string name="korean">Korean</string>
+    <string name="macedonian">Macedonian</string>
+    <string name="malay">Malay</string>
+    <string name="dutch_Netherlands">Dutch(Netherlands)</string>
+    <string name="norwegian">Norwegian</string>
+    <string name="polish">Polish</string>
+    <string name="pashto">Pashto</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="portuguese_Brazil">Portuguese(Brazil)</string>
+    <string name="romanian">Romanian</string>
+    <string name="russian">Russian</string>
+    <string name="sindhi">Sindhi</string>
+    <string name="slovenian">Slovenian</string>
+    <string name="serbian_rCS">Serbian(rCS)</string>
+    <string name="Serbian_rSP">Serbian(rSP)</string>
+    <string name="swedish">Swedish</string>
+    <string name="tamil">Tamil</string>
+    <string name="telugu">Telugu</string>
+    <string name="thai">Thai</string>
+    <string name="turkish">Turkish</string>
+    <string name="urdu">Urdu</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="chinese_rCN">Chinese(rCN)</string>
+    <string name="chinese_rTW">Chinese(rTW)</string>
+
+    <string name="main_menu_languages">Change Language</string>
+    <string name="choose_the_language">Choose the Language :</string>
+    <string name="apply_language">Apply</string>
+    <string-array name="languages_items">
+        <item>Arabic</item>
+        <item>Bosnian</item>
+        <item>Danish</item>
+        <item>German</item>
+        <item>English(Raute)</item>
+        <item>English(Canada)</item>
+        <item>English(United Kingdom)</item>
+        <item>Spanish</item>
+        <item>Farsi</item>
+        <item>French</item>
+        <item>Gujarati</item>
+        <item>Hindi</item>
+        <item>Croatian</item>
+        <item>Hungarian</item>
+        <item>Indonesian</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Macedonian</item>
+        <item>Malay</item>
+        <item>Dutch(Netherlands)</item>
+        <item>Norwegian</item>
+        <item>Polish</item>
+        <item>Pashto</item>
+        <item>Portuguese</item>
+        <item>Portuguese(Brazil)</item>
+        <item>Romanian</item>
+        <item>Russian</item>
+        <item>Sindhi</item>
+        <item>Slovenian</item>
+        <item>Serbian(rCS)</item>
+        <item>Serbian(rSP)</item>
+        <item>Swedish</item>
+        <item>Tamil</item>
+        <item>Telugu</item>
+        <item>Thai</item>
+        <item>Turkish</item>
+        <item>Urdu</item>
+        <item>Vietnamese</item>
+        <item>Chinese(rCN)</item>
+        <item>Chinese(rTW)</item>
+
+    </string-array>
 </resources>

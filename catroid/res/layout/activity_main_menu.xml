@@ -86,4 +86,5 @@
         android:onClick="handleUploadButton"
         android:text="@string/main_menu_upload" />
 
+
 </LinearLayout>

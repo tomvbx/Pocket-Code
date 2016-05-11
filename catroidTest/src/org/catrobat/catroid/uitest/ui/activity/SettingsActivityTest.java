@@ -32,6 +32,10 @@ import org.catrobat.catroid.ui.MainMenuActivity;
 import org.catrobat.catroid.ui.SettingsActivity;
 import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
 import org.catrobat.catroid.uitest.util.UiTestUtils;
+import org.mockito.cglib.core.Local;
+
+import java.text.Format;
+import java.text.NumberFormat;
 
 public class SettingsActivityTest extends BaseActivityInstrumentationTestCase<MainMenuActivity> {
 
@@ -99,5 +103,29 @@ public class SettingsActivityTest extends BaseActivityInstrumentationTestCase<Ma
 		solo.scrollDown();
 		solo.sleep(200);
 		assertTrue("Lego brick category is not showing!", solo.searchText(categoryLegoNXTLabel));
+	}
+
+	public void testChangeNumberFormatSetting(){
+
+		solo.waitForActivity(MainMenuActivity.class.getSimpleName());
+		solo.sleep(200);
+		solo.clickOnMenuItem(settings);
+		solo.sleep(200);
+		solo.waitForActivity(SettingsActivity.class.getSimpleName());
+		assertTrue("Wrong title", solo.searchText(solo.getString(R.string.preference_title)));
+		solo.sleep(200);
+		solo.clickOnText("Change number format");
+		solo.waitForText("Change number format");
+		solo.sleep(200);
+		solo.clickOnText("Choose number format");
+		//solo.clickInList(1);
+		solo.waitForText("Choose number format");
+		solo.sleep(200);
+		solo.clickOnText("Hindi numbers");
+		solo.waitForText("Hindi numbers");
+		solo.sleep(200);
+
+
+
 	}
 }

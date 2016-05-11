@@ -136,4 +136,15 @@
         <item>@string/phiro_sensor_bottom_right</item>
     </string-array>
 
+     <string-array name="listNumberFormatArray">
+        <item>Arabic numbers</item>
+        <item>Hindi numbers</item>
+
+    </string-array>
+
+    <string-array name="listNumberFormatValues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

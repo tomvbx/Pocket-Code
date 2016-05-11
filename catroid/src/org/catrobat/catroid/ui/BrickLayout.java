@@ -24,6 +24,7 @@
 package org.catrobat.catroid.ui;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -38,6 +39,7 @@ import android.widget.TextView;
 import org.catrobat.catroid.R;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Author: Romain Guy
@@ -293,7 +295,21 @@ public class BrickLayout extends ViewGroup {
 
 				currentLine.height = lineThickness;
 
-				int posX = getPaddingLeft() + lineLength - childWidth;
+				/**
+				 * TODO:
+				 * - change posX
+				 */
+				int posX;
+				Configuration config = getResources().getConfiguration();
+				if(config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL)
+				{
+					posX = sizeWidth - lineLengthWithHorizontalSpacing;
+				}
+				else
+				{
+					posX = getPaddingLeft() + lineLength - childWidth;
+				}
+
 				int posY = getPaddingTop() + prevLinePosition;
 
 				element.posX = posX;
@@ -335,6 +351,7 @@ public class BrickLayout extends ViewGroup {
 		}
 
 		this.setMeasuredDimension(resolveSize(x, widthMeasureSpec), resolveSize(y, heightMeasureSpec));
+
 	}
 
 	private int preLayoutMeasureWidth(View child, int sizeWidth, int sizeHeight, int modeWidth, int modeHeight) {

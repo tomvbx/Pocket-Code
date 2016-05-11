@@ -21,18 +21,11 @@
   ~ You should have received a copy of the GNU Affero General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    
-    <item
-        android:id="@+id/menu_redo"
-        android:title="@string/redo"
-        android:showAsAction="ifRoom"
-        android:icon="@drawable/icon_redo" />
-    <item
-        android:id="@+id/menu_undo"
-        android:title="@string/undo"
-        android:showAsAction="ifRoom"
-        android:icon="@drawable/icon_undo" />
-
-</menu>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/listview_background_shape">
+    <stroke android:width="1.5dp" android:color="@color/spritelist_item_thumbnail_border_color" />
+    <padding android:left="1.5dp"
+        android:top="1.5dp"
+        android:right="1.5dp"
+        android:bottom="1.5dp" />
+    <solid android:color="@android:color/transparent" />
+</shape>

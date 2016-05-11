@@ -124,6 +124,8 @@
                     android:scheme="file" />
             </intent-filter>
         </activity>
+        <activity android:name=".Languages"
+            ></activity>
         <activity
             android:name=".ui.BackPackActivity"
             android:screenOrientation="portrait"

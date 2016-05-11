@@ -27,6 +27,8 @@
     android:paddingBottom="11dp"
     android:paddingLeft="6dp"
     android:paddingRight="6dp"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
     android:paddingTop="11dp"
     android:textColor="#ff9f01"
     android:textSize="21sp"

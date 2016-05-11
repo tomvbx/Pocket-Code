@@ -58,6 +58,7 @@
             style="@style/DefaultDialog.TextView"
             android:layout_below="@+id/dialog_sign_in_register"
             android:layout_toLeftOf="@+id/dialog_sign_in_or"
+            android:layout_toStartOf="@+id/dialog_sign_in_or"
             android:gravity="center"
             android:background="@android:color/darker_gray"/>
 
@@ -68,6 +69,7 @@
             style="@style/DefaultDialog.TextView"
             android:text="@string/or"
             android:paddingLeft="0dp"
+            android:paddingStart="0dp"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_below="@+id/dialog_sign_in_register"
             android:gravity="center"

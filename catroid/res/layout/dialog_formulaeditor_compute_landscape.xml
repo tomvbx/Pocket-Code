@@ -28,6 +28,8 @@
     android:orientation="vertical"
     android:paddingLeft="40dp"
     android:paddingRight="40dp"
+    android:paddingStart="40dp"
+    android:paddingEnd="40dp"
     android:rotation="90" >
 
     <TextView

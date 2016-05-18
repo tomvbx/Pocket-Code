@@ -114,12 +114,8 @@ public class SettingsActivityTest extends BaseActivityInstrumentationTestCase<Ma
 		solo.waitForActivity(SettingsActivity.class.getSimpleName());
 		assertTrue("Wrong title", solo.searchText(solo.getString(R.string.preference_title)));
 		solo.sleep(200);
-		solo.clickOnText("Change number format");
-		solo.waitForText("Change number format");
-		solo.sleep(200);
-		solo.clickOnText("Choose number format");
-		//solo.clickInList(1);
-		solo.waitForText("Choose number format");
+		solo.clickOnText("Change date format");
+		solo.waitForText("Change date format");
 		solo.sleep(200);
 		solo.clickOnText("Hindi numbers");
 		solo.waitForText("Hindi numbers");

@@ -44,7 +44,7 @@ public class SettingsActivity extends PreferenceActivity {
 	public static final String SETTINGS_SHOW_PARROT_AR_DRONE_BRICKS = "setting_parrot_ar_drone_bricks";
 	private static final String SETTINGS_SHOW_PHIRO_BRICKS = "setting_enable_phiro_bricks";
 	public static final String SETTINGS_SHOW_ARDUINO_BRICKS = "setting_arduino_bricks";
-	public static final String SETTINGS_SHOW_CHANGE_NUMBER_FORMAT = "setting_change_number_format";
+	public static final String SETTINGS_SHOW_CHANGE_DATE_FORMAT = "setting_change_date_format";
 
 	public static final String SETTINGS_PARROT_AR_DRONE_CATROBAT_TERMS_OF_SERVICE_ACCEPTED_PERMANENTLY = "setting_parrot_ar_drone_catrobat_terms_of_service_accepted_permanently";
 	PreferenceScreen screen = null;
@@ -97,8 +97,8 @@ public class SettingsActivity extends PreferenceActivity {
 			arduinoPreference.setEnabled(false);
 			screen.removePreference(arduinoPreference);
 		}
-		if (!BuildConfig.FEATURE_NUMBER_FORMAT_ENABLED) {
-			PreferenceScreen arduinoPreference = (PreferenceScreen) findPreference(SETTINGS_SHOW_CHANGE_NUMBER_FORMAT);
+		if (!BuildConfig.FEATURE_DATE_FORMAT_ENABLED) {
+			PreferenceScreen arduinoPreference = (PreferenceScreen) findPreference(SETTINGS_SHOW_CHANGE_DATE_FORMAT);
 			arduinoPreference.setEnabled(false);
 			screen.removePreference(arduinoPreference);
 		}

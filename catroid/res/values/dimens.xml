@@ -69,5 +69,5 @@
     <dimen name="brick_flow_layout_horizontal_spacing" >3dp</dimen >
     <!--  -->
     <dimen name="language">24dp</dimen>
-    <dimen name="lang_font">20dp</dimen>
+    <dimen name="lang_font">21dp</dimen>
 </resources>

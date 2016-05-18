@@ -969,4 +969,51 @@
   <string name="choose_camera_back">back</string>
   <string name="error_flash_front_camera">\"The flash can be used with the back camera only. Please add a \"Use
         camera\" brick and change to your device\'s back camera. \"</string>
+
+  <string name="preference_title_change_language">تغيير اللغة </string>
+
+  <string name="arabic">العربية</string>
+  <string name="bosnian">البوسنية</string>
+  <string name="danish">الدنماركية</string>
+  <string name="german">الألمانية</string>
+  <string name="english_Raute">الإنجليزية (Raute)</string>
+  <string name="english_Canada">الإنجليزية(Canada)</string>
+  <string name="english_United_Kingdom">الإنجليزية(United Kingdom)</string>
+  <string name="spanish">الإسبانية</string>
+  <string name="farsi">الفارسية</string>
+  <string name="french">الفرنسية</string>
+  <string name="gujarati">الغوجاراتية</string>
+  <string name="hindi">الهندية</string>
+  <string name="croatian">الكرواتية</string>
+  <string name="hungarian">الهنغارية</string>
+  <string name="indonesian">الإندنوسية</string>
+  <string name="italian">الإيطالية</string>
+  <string name="japanese">اليابانية</string>
+  <string name="korean">الكورية</string>
+  <string name="macedonian">المقدونية</string>
+  <string name="malay">الملايو</string>
+  <string name="dutch_Netherlands">الهولندية(Netherlands)</string>
+  <string name="norwegian">النرويجية</string>
+  <string name="polish">البولندية</string>
+  <string name="pashto">الباشتو</string>
+  <string name="portuguese">البرتغالية</string>
+  <string name="portuguese_Brazil">البرتغالية(Brazil)</string>
+  <string name="romanian">الرومانية</string>
+  <string name="russian">الروسية</string>
+  <string name="sindhi">السندية</string>
+  <string name="slovenian">السلوفينية</string>
+  <string name="serbian_rCS">الصربية(rCS)</string>
+  <string name="Serbian_rSP">الصربية(rSP)</string>
+  <string name="swedish">السويدية</string>
+  <string name="tamil">التاميل</string>
+  <string name="telugu">التيلجو</string>
+  <string name="thai">التايلاندية</string>
+  <string name="turkish">التركية</string>
+  <string name="urdu">أردو</string>
+  <string name="vietnamese">الفيتنامية</string>
+  <string name="chinese_rCN">الصينية(rCN)</string>
+  <string name="chinese_rTW">الصينية(rTW)</string>
+
+  <string name="choose_the_language">أختر اللغة :</string>
+
 </resources>

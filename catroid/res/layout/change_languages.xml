@@ -16,6 +16,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,7 +134,7 @@
             android:textSize="@dimen/lang_font"
             android:text="@string/hungarian"
             android:layoutDirection="locale"
-            android:onClick="ln_du"/>
+            android:onClick="ln_hu"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -354,6 +355,6 @@
             android:onClick="ln_zhrtw"/>
 
     </RadioGroup>
-    </ScrollView>
 
+    </ScrollView>
 </LinearLayout>

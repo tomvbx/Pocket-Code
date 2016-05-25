@@ -25,8 +25,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:paddingLeft="40dp"
-    android:paddingRight="40dp" >
+    android:paddingStart="40dp"
+    android:paddingEnd="40dp" >
 
     <TextView
         android:id="@+id/formula_editor_compute_dialog_textview"

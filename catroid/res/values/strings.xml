@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!--
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!--
   ~ Catroid: An on-device visual programming system for Android devices
   ~ Copyright (C) 2010-2016 The Catrobat Team
   ~ (<http://developer.catrobat.org/credits>)
@@ -76,8 +75,6 @@
     <string name="nothing_to_rename">Nothing to rename</string>
     <string name="unpack_background">Program\'s background will be replaced</string>
     <!--  -->
-
-
 
 
     <!-- Main menu activity -->
@@ -1090,6 +1087,24 @@
     <string name="chinese_rTW">Chinese(rTW)</string>
 
     <string name="choose_the_language">Choose the Language :</string>
+    <string name="preference_title_change_font">Change Font</string>
+    <string name="choose_the_font">Choose the Font Type:</string>
+
+
+
+    <string name="please_restart_the_app">please restart The Application for the applied changes to take effect</string>
+    <string name="please_restart_for_default">please restart The Application for Default changes to take effect</string>
+    <!-- FONTS NAMES - Don't Need To Change -->
+    <string name="Tahoma">Tahoma</string>
+    <string name="Default">Default</string>
+    <string name="DroidSans">DroidSans</string>
+    <string name="Simplified">Simplified Arabic</string>
+    <string name="Arial">Arial</string>
+    <string name="Andalus">Andalus</string>
+    <string name="Meiryo">Meiryo</string>
+    <string name="HelveticaNeueLT">HelveticaNeueLT</string>
+    <string name="Times">Times New Roman</string>
+    <string name="Bell">Bell MT</string>
 
 
 </resources>

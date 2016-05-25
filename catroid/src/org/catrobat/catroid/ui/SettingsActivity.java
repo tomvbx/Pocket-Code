@@ -34,6 +34,7 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
 import org.catrobat.catroid.BuildConfig;
+import org.catrobat.catroid.CF.Change_Fonts;
 import org.catrobat.catroid.Languages;
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.DroneConfigPreference;
@@ -46,7 +47,6 @@ public class SettingsActivity extends PreferenceActivity {
 	public static final String SETTINGS_SHOW_PARROT_AR_DRONE_BRICKS = "setting_parrot_ar_drone_bricks";
 	private static final String SETTINGS_SHOW_PHIRO_BRICKS = "setting_enable_phiro_bricks";
 	public static final String SETTINGS_SHOW_ARDUINO_BRICKS = "setting_arduino_bricks";
-	public static final String SETTING_CHANGE_LANGUAGE = "setting_change_language";
 	public static final String SETTINGS_PARROT_AR_DRONE_CATROBAT_TERMS_OF_SERVICE_ACCEPTED_PERMANENTLY = "setting_parrot_ar_drone_catrobat_terms_of_service_accepted_permanently";
 	PreferenceScreen screen = null;
 
@@ -75,6 +75,15 @@ public class SettingsActivity extends PreferenceActivity {
 		updateActionBar();
 
 		screen = getPreferenceScreen();
+		PreferenceScreen preferencefont = (PreferenceScreen)findPreference("setting_change_font");
+		preferencefont.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				Intent intent1 = new Intent(SettingsActivity.this, Change_Fonts.class);
+				startActivity(intent1);
+				return false;
+			}
+		});
 		PreferenceScreen preferenceScreen = (PreferenceScreen)findPreference("setting_change_language");
 		preferenceScreen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 			@Override
@@ -84,6 +93,7 @@ public class SettingsActivity extends PreferenceActivity {
 				return false;
 			}
 		});
+
 
 		if (!BuildConfig.FEATURE_LEGO_NXT_ENABLED) {
 			PreferenceScreen legoNxtPreference = (PreferenceScreen) findPreference(SETTINGS_MINDSTORMS_NXT_BRICKS_ENABLED);

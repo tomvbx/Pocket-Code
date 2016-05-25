@@ -27,7 +27,7 @@
     android:layout_height="wrap_content"
     android:layout_centerVertical="true"
     android:paddingBottom="9dp"
-    android:layout_toRightOf="@+id/my_projects_activity_project_image">
+    android:layout_toEndOf="@+id/my_projects_activity_project_image">
 
     <TextView
         android:id="@+id/my_projects_activity_project_title"
@@ -50,8 +50,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="true"
-            android:layout_marginLeft="12.5dp"
-            android:layout_toRightOf="@id/my_projects_activity_project_image"
+            android:layout_marginStart="12.5dp"
+            android:layout_toEndOf="@id/my_projects_activity_project_image"
             android:text="@string/last_used" 
             style="@style/ListViewItemDetailsText"/>
 
@@ -61,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="true"
             android:layout_below="@id/my_projects_activity_project_changed_1"
-            android:layout_marginLeft="12.5dp"
-            android:layout_toRightOf="@id/my_projects_activity_project_image"
+            android:layout_marginStart="12.5dp"
+            android:layout_toEndOf="@id/my_projects_activity_project_image"
             android:text="@string/size_of_project" 
             style="@style/ListViewItemDetailsText"/>
 
@@ -71,8 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="true"
-            android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@id/my_projects_activity_project_changed_1" 
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/my_projects_activity_project_changed_1"
             style="@style/ListViewItemDetailsText"/>
 
         <TextView
@@ -81,8 +81,8 @@
             android:layout_height="wrap_content"
             android:layout_alignWithParentIfMissing="true"
             android:layout_below="@id/my_projects_activity_project_changed_2"
-            android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@id/my_projects_activity_project_changed_1" 
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/my_projects_activity_project_changed_1"
             style="@style/ListViewItemDetailsText"/>
     </RelativeLayout>
 

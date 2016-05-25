@@ -41,14 +41,14 @@
             <org.catrobat.catroid.ui.CapitalizedTextView
                 style="@style/DefaultDialog.TextView"
                 android:layout_width="wrap_content"
-                android:layout_marginRight="0dp"
+                android:layout_marginEnd="0dp"
                 android:text="@string/size_of_project" />
 
             <TextView
                 android:id="@+id/dialog_upload_size_of_project"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:paddingBottom="@dimen/dialog_item_header_linepadding" />
         </LinearLayout >
 
@@ -63,14 +63,14 @@
                 android:id="@+id/tv_title"
                 style="@style/DefaultDialog.TextView"
                 android:layout_width="wrap_content"
-                android:layout_marginRight="0dp"
+                android:layout_marginEnd="0dp"
                 android:text="@string/project_name" />
 
             <TextView
                 android:id="@+id/tv_project_rename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_marginStart="6dp"
                 android:paddingBottom="@dimen/dialog_item_header_linepadding"
                 android:text="@string/project_rename"
                 android:textSize="12sp" >

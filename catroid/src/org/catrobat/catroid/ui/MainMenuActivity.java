@@ -94,12 +94,12 @@ public class MainMenuActivity extends BaseActivity implements OnLoadProjectCompl
 		Utils.updateScreenWidthAndHeight(this);
 
 		setContentView(R.layout.activity_main_menu);
+
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayUseLogoEnabled(true);
 		actionBar.setTitle(R.string.app_name);
 
 		findViewById(R.id.main_menu_button_continue).setEnabled(false);
-
 		// Load external project from URL or local file system.
 		Uri loadExternalProjectUri = getIntent().getData();
 		getIntent().setData(null);

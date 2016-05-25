@@ -112,6 +112,8 @@
     <string name="preference_title_enable_arduino_bricks">Arduino bricks</string>
     <string name="preference_title_enable_nfc_bricks">Near Field Communication</string>
     <string name="preference_description_nfc_bricks">Allow to use NFC tags in programs</string>
+    <string name="preference_title_enable_time_24">Time format 24h</string>
+    <string name="preference_description_time_24">Change the format of the time</string>
     <!-- -->
     <string name="preference_description_arduino_bricks">Allow to control Arduino boards</string>
     <string name="preference_title_enable_raspi_bricks">Raspberry Pi bricks</string>
@@ -623,6 +625,7 @@
     <string name="default_drone_project_sprites_emergency">Emergency</string>
     <string name="drone_brick_set_text">Text</string>
     <string name="drone_brick_set_x">X:</string>
+    <string name="second_hard">Second</string>
     <!--  -->
 
     <!-- Drone config spinner values  -->

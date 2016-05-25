@@ -82,16 +82,16 @@ public final class UtilFile {
 		return progressValue;
 	}
 
-	public static String getSizeAsString(File fileOrDirectory) {
+	public static String getSizeAsString(File fileOrDirectory, Context context) {
 		final int unit = 1024;
 		long bytes = UtilFile.getSizeOfFileOrDirectoryInByte(fileOrDirectory);
-		String fileSizeExtension[] = {Resources.getSystem().getString(R.string.Byte_short),
-				Resources.getSystem().getString(R.string.kiloByte_short),
-				Resources.getSystem().getString(R.string.MegaByte_short),
-				Resources.getSystem().getString(R.string.GigaByte_short),
-				Resources.getSystem().getString(R.string.TeraByte_short),
-				Resources.getSystem().getString(R.string.PetaByte_short),
-				Resources.getSystem().getString(R.string.ExaByte_short)
+		String fileSizeExtension[] = { context.getString(R.string.Byte_short),
+				context.getString(R.string.kiloByte_short),
+				context.getString(R.string.MegaByte_short),
+				context.getString(R.string.GigaByte_short),
+				context.getString(R.string.TeraByte_short),
+				context.getString(R.string.PetaByte_short),
+				context.getString(R.string.ExaByte_short)
 		};
 
 		if (bytes < unit) {

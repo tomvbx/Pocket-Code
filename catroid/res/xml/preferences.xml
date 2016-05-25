@@ -113,18 +113,15 @@
         android:title="@string/preference_title_enable_phiro_bricks" />
 
 
-    <PreferenceScreen
-        android:key="setting_change_number_format"
-        android:title="Change number format">
-
-        <ListPreference
-            android:title="Choose number format"
-            android:key="setting_new_number_foramt"
-            android:defaultValue="1"
-            android:entries="@array/listNumberFormatArray"
-            android:entryValues="@array/listNumberFormatValues" />
 
 
-    </PreferenceScreen>
+    <ListPreference
+        android:title="Change date format"
+        android:key="setting_change_date_format"
+        android:defaultValue="1"
+        android:entries="@array/listDateFormatArray"
+        android:entryValues="@array/listDateFormatValues" />
+
+
 
 </PreferenceScreen>

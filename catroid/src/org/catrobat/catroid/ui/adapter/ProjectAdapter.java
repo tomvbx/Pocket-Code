@@ -46,6 +46,7 @@ import org.catrobat.catroid.utils.Utils;
 
 import java.io.File;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -54,9 +55,11 @@ import java.util.TreeSet;
 
 public class ProjectAdapter extends ArrayAdapter<ProjectData> {
 	private boolean showDetails;
+	private boolean showDateTimeForamat;
 	private int selectMode;
 	private Set<Integer> checkedProjects = new TreeSet<Integer>();
 	private OnProjectEditListener onProjectEditListener;
+	private SimpleDateFormat userSelectedSimpleDateFormat;
 
 	private static class ViewHolder {
 		private RelativeLayout background;
@@ -78,12 +81,19 @@ public class ProjectAdapter extends ArrayAdapter<ProjectData> {
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		screenshotLoader = new ProjectScreenshotLoader(context);
 		showDetails = false;
+		showDateTimeForamat = true;
 		selectMode = ListView.CHOICE_MODE_NONE;
+		userSelectedSimpleDateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
 	}
 
 	public void setOnProjectEditListener(OnProjectEditListener listener) {
 		onProjectEditListener = listener;
 	}
+
+	public void setUserSelectedSimpleDateFormat(SimpleDateFormat userSelectedDateFormat) {
+		this.userSelectedSimpleDateFormat = userSelectedDateFormat;
+	}
+
 
 	public void setShowDetails(boolean showDetails) {
 		this.showDetails = showDetails;
@@ -92,6 +102,15 @@ public class ProjectAdapter extends ArrayAdapter<ProjectData> {
 	public boolean getShowDetails() {
 		return showDetails;
 	}
+
+	public boolean isShowDateTimeForamat() {
+		return showDateTimeForamat;
+	}
+
+	public void setShowDateTimeForamat(boolean showDateTimeForamat) {
+		this.showDateTimeForamat = showDateTimeForamat;
+	}
+
 
 	public void setSelectMode(int selectMode) {
 		this.selectMode = selectMode;
@@ -164,16 +183,18 @@ public class ProjectAdapter extends ArrayAdapter<ProjectData> {
 
 		Calendar projectLastModificationDateCalendar = Calendar.getInstance();
 		projectLastModificationDateCalendar.setTime(projectLastModificationDate);
-
-		if (mediumDateFormat.format(projectLastModificationDate).equals(mediumDateFormat.format(now))) {
-			projectLastModificationDateString = getContext().getString(R.string.details_date_today) + " "
-					+ shortTimeFormat.format(projectLastModificationDate);
-		} else if (mediumDateFormat.format(projectLastModificationDate).equals(mediumDateFormat.format(yesterday))) {
-			projectLastModificationDateString = getContext().getString(R.string.details_date_yesterday);
+		if (showDateTimeForamat) {
+			if (mediumDateFormat.format(projectLastModificationDate).equals(mediumDateFormat.format(now))) {
+				projectLastModificationDateString = getContext().getString(R.string.details_date_today) + " "
+						+ shortTimeFormat.format(projectLastModificationDate);
+			} else if (mediumDateFormat.format(projectLastModificationDate).equals(mediumDateFormat.format(yesterday))) {
+				projectLastModificationDateString = getContext().getString(R.string.details_date_yesterday);
+			} else {
+				projectLastModificationDateString = mediumDateFormat.format(projectLastModificationDate);
+			}
 		} else {
-			projectLastModificationDateString = mediumDateFormat.format(projectLastModificationDate);
+			projectLastModificationDateString = userSelectedSimpleDateFormat.format(projectLastModificationDate);
 		}
-
 		holder.dateChanged.setText(projectLastModificationDateString);
 
 		//set project image (threaded):

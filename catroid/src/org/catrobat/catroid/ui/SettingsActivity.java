@@ -98,9 +98,9 @@ public class SettingsActivity extends PreferenceActivity {
 			screen.removePreference(arduinoPreference);
 		}
 		if (!BuildConfig.FEATURE_DATE_FORMAT_ENABLED) {
-			PreferenceScreen arduinoPreference = (PreferenceScreen) findPreference(SETTINGS_SHOW_CHANGE_DATE_FORMAT);
-			arduinoPreference.setEnabled(false);
-			screen.removePreference(arduinoPreference);
+			PreferenceScreen dateFormatPreference = (PreferenceScreen) findPreference(SETTINGS_SHOW_CHANGE_DATE_FORMAT);
+			dateFormatPreference.setEnabled(false);
+			screen.removePreference(dateFormatPreference);
 		}
 
 	}
@@ -344,6 +344,11 @@ public class SettingsActivity extends PreferenceActivity {
 	public static boolean getShowLegoMindstormsSensorInfoDialog(Context context) {
 		SharedPreferences preferences = getSharedPreferences(context);
 		return preferences.getBoolean(SETTINGS_MINDSTORMS_NXT_SHOW_SENSOR_INFO_BOX_DISABLED, false);
+	}
+	public static void setChangeDateFormatValue(Context context, int value) {
+		SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+		editor.putInt(SETTINGS_SHOW_CHANGE_DATE_FORMAT, value);
+		editor.commit();
 	}
 
 	public static void resetSharedPreferences(Context context) {

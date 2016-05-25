@@ -117,8 +117,8 @@ public class SettingsActivityTest extends BaseActivityInstrumentationTestCase<Ma
 		solo.clickOnText("Change date format");
 		solo.waitForText("Change date format");
 		solo.sleep(200);
-		solo.clickOnText("Hindi numbers");
-		solo.waitForText("Hindi numbers");
+		solo.clickOnText("dd-MMMM-yyyy");
+		solo.waitForText("dd-MMMM-yyyy");
 		solo.sleep(200);
 
 

@@ -28,6 +28,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -63,6 +64,10 @@ public class UserScriptDefinitionBrick extends ScriptBrick implements OnClickLis
 	private UserScriptDefinitionBrickElements userScriptDefinitionBrickElements;
 
 	private transient UserBrick brick; //TODO: remove this when bitmap is loaded differently (double reference)
+
+	public UserScriptDefinitionBrick() {
+		this(new UserBrick());
+	}
 
 	public UserScriptDefinitionBrick(UserBrick brick) {
 		this.script = new StartScript(true);
@@ -152,6 +157,11 @@ public class UserScriptDefinitionBrick extends ScriptBrick implements OnClickLis
 		view = View.inflate(context, R.layout.brick_user_definition, null);
 
 		setCheckboxView(R.id.brick_user_definition_checkbox);
+
+		LinearLayout layout = (LinearLayout) view.findViewById(R.id.brick_user_definition_layout);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			layout.getBackground().setAutoMirrored(true);
+		}
 
 		onLayoutChanged(view);
 

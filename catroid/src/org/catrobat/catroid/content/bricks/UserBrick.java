@@ -70,6 +70,10 @@ public class UserBrick extends BrickBaseType implements OnClickListener {
 	@XStreamAlias("userBrickId")
 	private int userBrickId;
 
+	public UserBrick() {
+		this(0);
+	}
+
 	public UserBrick(int userBrickId) {
 		this.userBrickId = userBrickId;
 		this.definitionBrick = new UserScriptDefinitionBrick(this);

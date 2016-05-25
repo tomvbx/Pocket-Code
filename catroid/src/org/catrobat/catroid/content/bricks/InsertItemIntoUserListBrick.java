@@ -63,6 +63,10 @@ public class InsertItemIntoUserListBrick extends UserListBrick {
 		this.userList = userList;
 	}
 
+	public InsertItemIntoUserListBrick() {
+		this(0, 0);
+	}
+
 	public InsertItemIntoUserListBrick(double value, Integer indexToInsert) {
 		initializeBrickFields(new Formula(value), new Formula(indexToInsert));
 	}

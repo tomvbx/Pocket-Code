@@ -49,6 +49,10 @@ public class IfLogicElseBrick extends BrickBaseType implements NestingBrick, All
 
 	private transient IfLogicElseBrick copy;
 
+	public IfLogicElseBrick() {
+		this(new IfLogicBeginBrick());
+	}
+
 	public IfLogicElseBrick(IfLogicBeginBrick ifBeginBrick) {
 		this.ifBeginBrick = ifBeginBrick;
 		ifBeginBrick.setIfElseBrick(this);

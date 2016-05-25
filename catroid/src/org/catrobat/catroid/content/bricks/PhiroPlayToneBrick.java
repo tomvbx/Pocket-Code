@@ -62,6 +62,8 @@ public class PhiroPlayToneBrick extends FormulaBrick {
 	}
 
 	public PhiroPlayToneBrick() {
+		this.toneEnum = Tone.DO;
+		this.tone = toneEnum.name();
 		addAllowedBrickField(BrickField.PHIRO_DURATION_IN_SECONDS);
 	}
 

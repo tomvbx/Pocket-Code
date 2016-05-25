@@ -48,6 +48,10 @@ import java.util.List;
 public class BroadcastWaitBrick extends BroadcastBrick implements BroadcastMessage {
 	private static final long serialVersionUID = 1L;
 
+	public BroadcastWaitBrick() {
+		super();
+	}
+
 	public BroadcastWaitBrick(String broadcastMessage) {
 		super(broadcastMessage);
 	}

@@ -38,6 +38,10 @@ public class DroneMoveForwardBrick extends DroneMoveBrick {
 
 	private static final long serialVersionUID = 1L;
 
+	public DroneMoveForwardBrick() {
+		super();
+	}
+
 	public DroneMoveForwardBrick(int durationInMilliseconds, int powerInPercent) {
 		super(durationInMilliseconds, powerInPercent);
 	}

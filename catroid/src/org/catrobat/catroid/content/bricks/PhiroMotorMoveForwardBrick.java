@@ -67,6 +67,8 @@ public class PhiroMotorMoveForwardBrick extends FormulaBrick {
 	}
 
 	public PhiroMotorMoveForwardBrick() {
+		this.motorEnum = Motor.MOTOR_BOTH;
+		this.motor = motorEnum.name();
 		addAllowedBrickField(BrickField.PHIRO_SPEED);
 	}
 

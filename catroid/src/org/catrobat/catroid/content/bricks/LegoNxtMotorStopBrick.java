@@ -54,6 +54,10 @@ public class LegoNxtMotorStopBrick extends BrickBaseType implements OnItemSelect
 		MOTOR_A, MOTOR_B, MOTOR_C, MOTOR_B_C, ALL_MOTORS
 	}
 
+	public LegoNxtMotorStopBrick() {
+		this(Motor.ALL_MOTORS);
+	}
+
 	public LegoNxtMotorStopBrick(Motor motor) {
 		this.motorEnum = motor;
 		this.motor = motorEnum.name();

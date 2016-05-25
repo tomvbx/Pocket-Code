@@ -59,6 +59,9 @@ public class BroadcastBrick extends BrickBaseType implements BroadcastMessage {
 		return this;
 	}
 
+	public BroadcastBrick() {
+	}
+
 	public BroadcastBrick(String broadcastMessage) {
 		this.broadcastMessage = broadcastMessage;
 		MessageContainer.addMessage(broadcastMessage);

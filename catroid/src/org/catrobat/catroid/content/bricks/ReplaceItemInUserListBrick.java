@@ -63,6 +63,11 @@ public class ReplaceItemInUserListBrick extends UserListBrick {
 		this.userList = userList;
 	}
 
+	public ReplaceItemInUserListBrick() {
+		addAllowedBrickField(BrickField.REPLACE_ITEM_IN_USERLIST_VALUE);
+		addAllowedBrickField(BrickField.REPLACE_ITEM_IN_USERLIST_INDEX);
+	}
+
 	public ReplaceItemInUserListBrick(double value, Integer indexToReplace) {
 		initializeBrickFields(new Formula(value), new Formula(indexToReplace));
 	}

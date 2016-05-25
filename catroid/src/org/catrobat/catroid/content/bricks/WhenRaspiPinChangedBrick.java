@@ -50,6 +50,10 @@ public class WhenRaspiPinChangedBrick extends ScriptBrick {
 	private String pinString = Integer.toString(BrickValues.RASPI_DIGITAL_INITIAL_PIN_NUMBER);
 	private String eventString = BrickValues.RASPI_PRESSED_EVENT;
 
+	public WhenRaspiPinChangedBrick(){
+		this(null);
+	}
+
 	public WhenRaspiPinChangedBrick(RaspiInterruptScript script) {
 		this.script = script;
 		if (script != null) {

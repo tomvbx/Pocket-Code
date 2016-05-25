@@ -62,6 +62,8 @@ public class LegoNxtMotorMoveBrick extends FormulaBrick {
 	}
 
 	public LegoNxtMotorMoveBrick() {
+		this.motorEnum = Motor.MOTOR_A;
+		this.motor = motorEnum.name();
 		addAllowedBrickField(BrickField.LEGO_NXT_SPEED);
 	}
 

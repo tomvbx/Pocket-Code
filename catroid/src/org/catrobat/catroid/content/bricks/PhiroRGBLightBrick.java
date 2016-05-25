@@ -76,6 +76,9 @@ public class PhiroRGBLightBrick extends FormulaBrick {
 	}
 
 	public PhiroRGBLightBrick() {
+		this.eyeEnum = Eye.BOTH;
+		this.eye = eyeEnum.name();
+
 		addAllowedBrickField(BrickField.PHIRO_LIGHT_RED);
 		addAllowedBrickField(BrickField.PHIRO_LIGHT_GREEN);
 		addAllowedBrickField(BrickField.PHIRO_LIGHT_BLUE);

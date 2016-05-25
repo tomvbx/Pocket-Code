@@ -53,6 +53,10 @@ public class PhiroMotorStopBrick extends BrickBaseType implements OnItemSelected
 		MOTOR_LEFT, MOTOR_RIGHT, MOTOR_BOTH
 	}
 
+	public PhiroMotorStopBrick() {
+		this(Motor.MOTOR_BOTH);
+	}
+
 	public PhiroMotorStopBrick(Motor motor) {
 		this.motorEnum = motor;
 		this.motor = motorEnum.name();

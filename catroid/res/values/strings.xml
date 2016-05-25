@@ -1098,4 +1098,27 @@
         camera\" brick and change to your device\'s back camera. "</string>
     <!-- -->
 
+    <!-- File size related strings -->
+    <string name="Byte">Byte</string>
+    <string name="Byte_short">B</string>
+
+    <string name="kiloByte">kiloByte</string>
+    <string name="kiloByte_short">kB</string>
+
+    <string name="MegaByte">MegaByte</string>
+    <string name="MegaByte_short">MB</string>
+
+    <string name="GigaByte">GigaByte</string>
+    <string name="GigaByte_short">GB</string>
+
+    <string name="TeraByte">TeraByte</string>
+    <string name="TeraByte_short">TB</string>
+
+    <string name="PetaByte">PetaByte</string>
+    <string name="PetaByte_short">TB</string>
+
+    <string name="ExaByte">ExaByte</string>
+    <string name="ExaByte_short">EB</string>
+    <!-- -->
+
 </resources>

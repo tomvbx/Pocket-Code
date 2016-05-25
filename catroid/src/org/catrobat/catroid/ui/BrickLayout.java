@@ -29,7 +29,9 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +87,14 @@ public class BrickLayout extends ViewGroup {
 		super(context, attributeSet, defStyle);
 		allocateLineData();
 		this.readStyleParameters(context, attributeSet);
+	}
+
+	protected void onFinishInflate() {
+		super.onFinishInflate();
+		Drawable background = getBackground();
+		if (background != null) {
+			background.setAutoMirrored(true);
+		}
 	}
 
 	protected void allocateLineData() {

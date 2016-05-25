@@ -23,9 +23,11 @@
 package org.catrobat.catroid.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
 
 import org.catrobat.catroid.ProjectManager;
+import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.soundrecorder.SoundRecorder;
 
@@ -83,9 +85,17 @@ public final class UtilFile {
 	public static String getSizeAsString(File fileOrDirectory) {
 		final int unit = 1024;
 		long bytes = UtilFile.getSizeOfFileOrDirectoryInByte(fileOrDirectory);
+		String fileSizeExtension[] = {Resources.getSystem().getString(R.string.Byte_short),
+				Resources.getSystem().getString(R.string.kiloByte_short),
+				Resources.getSystem().getString(R.string.MegaByte_short),
+				Resources.getSystem().getString(R.string.GigaByte_short),
+				Resources.getSystem().getString(R.string.TeraByte_short),
+				Resources.getSystem().getString(R.string.PetaByte_short),
+				Resources.getSystem().getString(R.string.ExaByte_short)
+		};
 
 		if (bytes < unit) {
-			return bytes + " Byte";
+			return bytes + fileSizeExtension[0];
 		}
 
 		/*
@@ -93,9 +103,10 @@ public final class UtilFile {
 		 * log(a) / log(b) == logarithm of a to the base of b
 		 */
 		int exponent = (int) (Math.log(bytes) / Math.log(unit));
-		char prefix = "KMGTPE".charAt(exponent - 1);
+		//char prefix = "KMGTPE".charAt(exponent - 1);
 
-		return String.format(Locale.getDefault(), "%.1f %sB", bytes / Math.pow(unit, exponent), prefix);
+		return String.format(Locale.getDefault(), "%.1f %s", bytes / Math.pow(unit, exponent),
+				fileSizeExtension[exponent]);
 	}
 
 	public static boolean deleteDirectory(File fileOrDirectory) {

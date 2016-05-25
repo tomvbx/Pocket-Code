@@ -39,7 +39,6 @@ import android.preference.PreferenceScreen;
 import org.catrobat.catroid.BuildConfig;
 import org.catrobat.catroid.Languages;
 import org.catrobat.catroid.CF.Change_Fonts;
->>>>>>> Change_Font_squashed
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.DroneConfigPreference;
 import org.catrobat.catroid.devices.mindstorms.nxt.sensors.NXTSensor;

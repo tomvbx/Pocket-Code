@@ -27,6 +27,7 @@ import android.test.InstrumentationTestCase;
 import android.util.Log;
 
 import org.catrobat.catroid.ProjectManager;
+import org.catrobat.catroid.R;
 import org.catrobat.catroid.content.Project;
 import org.catrobat.catroid.content.Sprite;
 import org.catrobat.catroid.io.StorageHandler;
@@ -87,22 +88,25 @@ public class UtilFileTest extends InstrumentationTestCase {
 	public void testFileSize() throws IOException {
 		for (int i = 0; i < 2; i++) {
 			UtilFile.saveFileToProject("testDirectory", i + "testsound.mp3",
-					org.catrobat.catroid.test.R.raw.longtestsound, getInstrumentation().getContext(),
+					org.catrobat.catroid.test.R.raw.longtestsound, getInstrumentation().getTargetContext(),
 					UtilFile.FileType.TYPE_SOUND_FILE);
 		}
 
 		double expectedSizeInKilobytes = 84.2;
-		assertEquals("Unexpected file size String", String.format("%.1f KB", expectedSizeInKilobytes),
-				UtilFile.getSizeAsString(testDirectory));
+		assertEquals("Unexpected file size String", String.format("%.1f kB", expectedSizeInKilobytes),
+				UtilFile.formatFileSize(86221, getInstrumentation().getTargetContext()));
 
 		for (int i = 2; i < 48; i++) {
 			UtilFile.saveFileToProject("testDirectory", i + "testsound.mp3",
-					org.catrobat.catroid.test.R.raw.longtestsound, getInstrumentation().getContext(),
+					org.catrobat.catroid.test.R.raw.longtestsound, getInstrumentation().getTargetContext(),
 					UtilFile.FileType.TYPE_SOUND_FILE);
 		}
 		DecimalFormat decimalFormat = new DecimalFormat("#.0");
-		String expected = decimalFormat.format(2.0) + " MB";
-		assertEquals("Unexpected file size String", expected, UtilFile.getSizeAsString(testDirectory));
+		String expected = decimalFormat.format(2.0) + " " + getInstrumentation().getTargetContext().getString(R.string
+				.MegaByte_short);
+
+		assertEquals("Unexpected file size String", String.format(expected), UtilFile.formatFileSize(2097152,
+				getInstrumentation().getTargetContext()));
 
 		PrintWriter printWriter = null;
 
@@ -121,7 +125,8 @@ public class UtilFileTest extends InstrumentationTestCase {
 			}
 		}
 
-		assertEquals("Unexpected Filesize!", "7 Byte", UtilFile.getSizeAsString(testFile));
+		assertEquals("Unexpected Filesize!", "7 B", UtilFile.getSizeAsString(testFile, getInstrumentation()
+				.getTargetContext()));
 
 		UtilFile.deleteDirectory(testDirectory);
 	}

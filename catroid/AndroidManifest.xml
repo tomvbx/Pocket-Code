@@ -195,6 +195,7 @@
         <service android:name=".transfers.MediaDownloadService" />
         <service android:name="com.parrot.freeflight.service.DroneControlService"/>
         <service android:name=".utils.StatusBarNotificationManager$NotificationActionService" />
+        <activity android:name=".CF.Change_Fonts"></activity>
 
     </application>
 </manifest>

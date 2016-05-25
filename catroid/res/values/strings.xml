@@ -1110,6 +1110,23 @@
     <string name="MegaByte">MegaByte</string>
     <string name="MegaByte_short">MB</string>
 
+    <string name="preference_title_change_font">Change Font</string>
+    <string name="choose_the_font">Choose the Font Type:</string>
+
+    <string name="please_restart_the_app">please restart The Application for the applied changes to take effect</string>
+    <string name="please_restart_for_default">please restart The Application for Default changes to take effect</string>
+    <!-- FONTS NAMES - Don't Need To Change -->
+    <string name="Tahoma">Tahoma</string>
+    <string name="Default">Default</string>
+    <string name="DroidSans">DroidSans</string>
+    <string name="Simplified">Simplified Arabic</string>
+    <string name="Arial">Arial</string>
+    <string name="Andalus">Andalus</string>
+    <string name="Meiryo">Meiryo</string>
+    <string name="HelveticaNeueLT">HelveticaNeueLT</string>
+    <string name="Times">Times New Roman</string>
+    <string name="Bell">Bell MT</string>
+
     <string name="GigaByte">GigaByte</string>
     <string name="GigaByte_short">GB</string>
 

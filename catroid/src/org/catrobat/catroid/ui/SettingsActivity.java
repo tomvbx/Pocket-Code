@@ -38,6 +38,8 @@ import android.preference.PreferenceScreen;
 
 import org.catrobat.catroid.BuildConfig;
 import org.catrobat.catroid.Languages;
+import org.catrobat.catroid.CF.Change_Fonts;
+>>>>>>> Change_Font_squashed
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.DroneConfigPreference;
 import org.catrobat.catroid.devices.mindstorms.nxt.sensors.NXTSensor;
@@ -91,6 +93,16 @@ public class SettingsActivity extends PreferenceActivity {
 			public boolean onPreferenceClick(Preference preference) {
 				Intent intent = new Intent(SettingsActivity.this, Languages.class);
 				startActivity(intent);
+				return false;
+			}
+		});
+
+		PreferenceScreen preferencefont = (PreferenceScreen)findPreference("setting_change_font");
+		preferencefont.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				Intent intent1 = new Intent(SettingsActivity.this, Change_Fonts.class);
+				startActivity(intent1);
 				return false;
 			}
 		});

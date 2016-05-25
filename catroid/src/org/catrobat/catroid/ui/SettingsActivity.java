@@ -49,12 +49,9 @@ public class SettingsActivity extends PreferenceActivity {
 	public static final String SETTINGS_SHOW_PARROT_AR_DRONE_BRICKS = "setting_parrot_ar_drone_bricks";
 	private static final String SETTINGS_SHOW_PHIRO_BRICKS = "setting_enable_phiro_bricks";
 	public static final String SETTINGS_SHOW_ARDUINO_BRICKS = "setting_arduino_bricks";
-<<<<<<< b230a4f9a62589bfa323a3f2cf2f5931dbdcef66
 	public static final String SETTINGS_SHOW_RASPI_BRICKS = "setting_raspi_bricks";
 	public static final String SETTINGS_SHOW_NFC_BRICKS = "setting_nfc_bricks";
-=======
 	public static final String SETTING_CHANGE_LANGUAGE = "setting_change_language";
->>>>>>> [NDR] added localization option in shared preferences
 	public static final String SETTINGS_PARROT_AR_DRONE_CATROBAT_TERMS_OF_SERVICE_ACCEPTED_PERMANENTLY = "setting_parrot_ar_drone_catrobat_terms_of_service_accepted_permanently";
 	PreferenceScreen screen = null;
 
@@ -69,14 +66,11 @@ public class SettingsActivity extends PreferenceActivity {
 	public static final String DRONE_ROTATION_SPEED = "setting_drone_rotation_speed";
 	public static final String DRONE_TILT_ANGLE = "setting_drone_tilt_angle";
 
-<<<<<<< b230a4f9a62589bfa323a3f2cf2f5931dbdcef66
 	public static final String RASPI_SETTINGS_SCREEN = "settings_raspberry_screen";
 	public static final String RASPI_CONNECTION_SETTINGS_CATEGORY = "setting_raspi_connection_settings_category";
 	public static final String RASPI_HOST = "setting_raspi_host_preference";
 	public static final String RASPI_PORT = "setting_raspi_port_preference";
 	public static final String RASPI_VERSION_SPINNER = "setting_raspi_version_preference";
-=======
->>>>>>> [NDR] added localization option in shared preferences
 
 	@SuppressWarnings("deprecation")
 	@Override

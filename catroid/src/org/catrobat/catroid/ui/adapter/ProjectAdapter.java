@@ -146,7 +146,7 @@ public class ProjectAdapter extends ArrayAdapter<ProjectData> {
 		holder.projectName.setText(projectName);
 
 		// set size of project:
-		holder.size.setText(UtilFile.getSizeAsString(new File(Utils.buildProjectPath(projectName))));
+		holder.size.setText(UtilFile.getSizeAsString(new File(Utils.buildProjectPath(projectName)), getContext()));
 
 		//set last changed:
 		Date projectLastModificationDate = new Date(projectData.lastUsed);

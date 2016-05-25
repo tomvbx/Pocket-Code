@@ -78,6 +78,8 @@
     <!--  -->
 
 
+
+
     <!-- Main menu activity -->
     <string name="main_menu_new">New</string>
     <string name="main_menu_continue">Continue</string>
@@ -1120,5 +1122,52 @@
     <string name="ExaByte">ExaByte</string>
     <string name="ExaByte_short">EB</string>
     <!-- -->
+
+    <!-- languages activity -->
+    <string name="preference_title_change_language">Change Language </string>
+
+    <string name="arabic">Arabic</string>
+    <string name="bosnian">Bosnian</string>
+    <string name="danish">Danish</string>
+    <string name="german">German</string>
+    <string name="english_Raute">English(Raute)</string>
+    <string name="english_Canada">English(Canada)</string>
+    <string name="english_United_Kingdom">English(United Kingdom)</string>
+    <string name="spanish">Spanish</string>
+    <string name="farsi">Farsi</string>
+    <string name="french">French</string>
+    <string name="gujarati">Gujarati</string>
+    <string name="hindi">Hindi</string>
+    <string name="croatian">Croatian</string>
+    <string name="hungarian">Hungarian</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="italian">Italian</string>
+    <string name="japanese">Japanese</string>
+    <string name="korean">Korean</string>
+    <string name="macedonian">Macedonian</string>
+    <string name="malay">Malay</string>
+    <string name="dutch_Netherlands">Dutch(Netherlands)</string>
+    <string name="norwegian">Norwegian</string>
+    <string name="polish">Polish</string>
+    <string name="pashto">Pashto</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="portuguese_Brazil">Portuguese(Brazil)</string>
+    <string name="romanian">Romanian</string>
+    <string name="russian">Russian</string>
+    <string name="sindhi">Sindhi</string>
+    <string name="slovenian">Slovenian</string>
+    <string name="serbian_rCS">Serbian(rCS)</string>
+    <string name="Serbian_rSP">Serbian(rSP)</string>
+    <string name="swedish">Swedish</string>
+    <string name="tamil">Tamil</string>
+    <string name="telugu">Telugu</string>
+    <string name="thai">Thai</string>
+    <string name="turkish">Turkish</string>
+    <string name="urdu">Urdu</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="chinese_rCN">Chinese(rCN)</string>
+    <string name="chinese_rTW">Chinese(rTW)</string>
+
+    <string name="choose_the_language">Choose the Language :</string>
 
 </resources>

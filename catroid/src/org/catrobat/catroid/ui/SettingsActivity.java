@@ -24,6 +24,7 @@ package org.catrobat.catroid.ui;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -36,6 +37,7 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
 import org.catrobat.catroid.BuildConfig;
+import org.catrobat.catroid.CF.Change_Fonts;
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.DroneConfigPreference;
 import org.catrobat.catroid.devices.mindstorms.nxt.sensors.NXTSensor;
@@ -82,6 +84,16 @@ public class SettingsActivity extends PreferenceActivity {
 		updateActionBar();
 
 		screen = getPreferenceScreen();
+
+		PreferenceScreen preferencefont = (PreferenceScreen)findPreference("setting_change_font");
+		preferencefont.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				Intent intent1 = new Intent(SettingsActivity.this, Change_Fonts.class);
+				startActivity(intent1);
+				return false;
+			}
+		});
 
 		if (!BuildConfig.FEATURE_LEGO_NXT_ENABLED) {
 			PreferenceScreen legoNxtPreference = (PreferenceScreen) findPreference(SETTINGS_MINDSTORMS_NXT_BRICKS_ENABLED);

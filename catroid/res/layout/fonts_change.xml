@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="org.catrobat.catroid.CF.Change_Fonts"
+    android:id="@+id/m1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/language"
+        android:id="@+id/choose_fonttttt"
+        android:text="@string/choose_the_font" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font5"
+            android:text="@string/Default"
+            android:textSize="@dimen/lang_font"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font1"
+            android:text="@string/DroidSans"
+            android:textSize="@dimen/lang_font"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font2"
+            android:text="@string/Simplified"
+            android:textSize="@dimen/lang_font"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font3"
+            android:text="@string/Tahoma"
+            android:textSize="@dimen/lang_font"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font4"
+            android:text="@string/Arial"
+            android:textSize="@dimen/lang_font"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font6"
+            android:text="@string/Andalus"
+            android:textSize="@dimen/lang_font"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font7"
+            android:text="@string/Meiryo"
+            android:textSize="@dimen/lang_font"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font8"
+            android:text="@string/HelveticaNeueLT"
+            android:textSize="@dimen/lang_font"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font9"
+            android:text="@string/Times"
+            android:textSize="@dimen/lang_font"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/font10"
+            android:text="@string/Bell"
+            android:textSize="@dimen/lang_font"
+            />
+
+
+
+    </RadioGroup>
+    </ScrollView>
+
+
+</LinearLayout>

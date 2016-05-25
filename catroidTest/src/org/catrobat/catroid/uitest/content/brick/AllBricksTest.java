@@ -191,9 +191,6 @@ public class AllBricksTest extends BaseActivityInstrumentationTestCase<ScriptAct
 
 		for (Brick brick: getBrickInstances())
 		{
-			if(brick instanceof UserScriptDefinitionBrick)
-				continue;
-
 			ViewGroup view;
 			view = (ViewGroup)brick.getView(act, 42, adapter);
 			Assert.assertNotNull(brick.toString(), view);

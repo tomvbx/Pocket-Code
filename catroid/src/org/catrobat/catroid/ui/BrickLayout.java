@@ -30,6 +30,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -93,7 +94,9 @@ public class BrickLayout extends ViewGroup {
 		super.onFinishInflate();
 		Drawable background = getBackground();
 		if (background != null) {
-			background.setAutoMirrored(true);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+				background.setAutoMirrored(true);
+			}
 		}
 	}
 

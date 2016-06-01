@@ -23,19 +23,36 @@
 package org.catrobat.catroid.uitest.ui.activity;
 
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.text.format.DateUtils;
+import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import org.catrobat.catroid.R;
+import org.catrobat.catroid.common.Constants;
+import org.catrobat.catroid.common.DefaultProjectHandler;
+import org.catrobat.catroid.content.Project;
+import org.catrobat.catroid.io.StorageHandler;
 import org.catrobat.catroid.test.utils.TestUtils;
 import org.catrobat.catroid.ui.MainMenuActivity;
+import org.catrobat.catroid.ui.MyProjectsActivity;
 import org.catrobat.catroid.ui.SettingsActivity;
 import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
 import org.catrobat.catroid.uitest.util.UiTestUtils;
+import org.catrobat.catroid.utils.UtilFile;
+import org.catrobat.catroid.utils.Utils;
 import org.mockito.cglib.core.Local;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.text.DateFormat;
 import java.text.Format;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SettingsActivityTest extends BaseActivityInstrumentationTestCase<MainMenuActivity> {
 
@@ -105,23 +122,137 @@ public class SettingsActivityTest extends BaseActivityInstrumentationTestCase<Ma
 		assertTrue("Lego brick category is not showing!", solo.searchText(categoryLegoNXTLabel));
 	}
 
-	public void testChangeNumberFormatSetting(){
+	public void testChangeNumberFormatSetting() throws Exception {
+		String showDetailsText = solo.getString(R.string.show_details);
+
+		Date date = new Date(1357038000000L);
+		DateFormat mediumDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		SimpleDateFormat newDateFormat;
+
+		// sometimes standard project is not created for some reason!
+		// this test needs at least 3 projects in list!
+		// creating standard project if no project is loaded on test start
+		createStandardProgramIfNeeded();
+
+		createProjectsWithoutSprites();
+		String rootPath = Environment.getExternalStorageDirectory().getAbsolutePath()
+				+ "/Pocket Code";
+		String projectFilePath = Utils.buildPath(Utils.buildProjectPath(UiTestUtils.DEFAULT_TEST_PROJECT_NAME),
+				Constants.PROJECTCODE_NAME);
+		File projectCodeFile = new File(projectFilePath);
+		Date now = new Date();
+		long timeInMilliSeconds = now.getTime() - DateUtils.DAY_IN_MILLIS;
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+
+
+		String projectFilePathSec = Utils.buildPath(Utils.buildProjectPath(UiTestUtils.PROJECTNAME1), Constants.PROJECTCODE_NAME);
+		projectCodeFile = new File(projectFilePathSec);
+
+
+		Date date_2 = new Date(timeInMilliSeconds);
+		String result = formatter.format(date_2);
+
+
+		try{
+			Process su = Runtime.getRuntime().exec("su");
+			DataOutputStream outputStream = new DataOutputStream(su.getOutputStream());
+
+			outputStream.writeBytes("cd \"/storage/storage0/Pocket Code/testProject/\"\n");
+			outputStream.flush();
+			outputStream.writeBytes("touch -t 20160101 code.xml\n");
+			outputStream.flush();
+
+			outputStream.writeBytes("cd \"/storage/storage0/Pocket Code/testingproject1/\"\n");
+			outputStream.flush();
+			outputStream.writeBytes("touch -t " + result + " code.xml\n");
+			outputStream.flush();
+
+			outputStream.writeBytes("exit\n");
+			outputStream.flush();
+			su.waitFor();
+		}catch(IOException e){
+			throw new Exception(e);
+		}catch(InterruptedException e){
+			throw new Exception(e);
+		}
+
+		solo.sleep(200);
+
 
 		solo.waitForActivity(MainMenuActivity.class.getSimpleName());
 		solo.sleep(200);
 		solo.clickOnMenuItem(settings);
 		solo.sleep(200);
+
 		solo.waitForActivity(SettingsActivity.class.getSimpleName());
 		assertTrue("Wrong title", solo.searchText(solo.getString(R.string.preference_title)));
 		solo.sleep(200);
 		solo.clickOnText("Change date format");
 		solo.waitForText("Change date format");
 		solo.sleep(200);
-		solo.clickOnText("dd-MMMM-yyyy");
-		solo.waitForText("dd-MMMM-yyyy");
+		solo.clickOnText("MMMM-dd-yyyy");
+		solo.waitForText("MMMM-dd-yyyy");
+		newDateFormat= new SimpleDateFormat("MMMM-dd-yyyy");
 		solo.sleep(200);
+
+		solo.goBack();
+		solo.goBack();
+		solo.goBack();
+		solo.sleep(200);
+
+		solo.clickOnButton(solo.getString(R.string.main_menu_programs));
+		solo.waitForActivity(MyProjectsActivity.class.getSimpleName());
+		solo.waitForFragmentById(R.id.fragment_projects_list);
+
+		View projectDetails = solo.getView(R.id.my_projects_activity_list_item_details);
+		solo.waitForView(projectDetails);
+		UiTestUtils.openOptionsMenu(solo);
+
+		solo.waitForText(showDetailsText);
+		solo.clickOnText(showDetailsText);
+		solo.sleep(400);
+
+		//get details view again, otherwise assert will fail
+		projectDetails = solo.getView(R.id.my_projects_activity_list_item_details);
+		assertEquals("Project details are not showing!", View.VISIBLE, projectDetails.getVisibility());
+
+		assertTrue("Last access is not correct!", solo.searchText(solo.getString(R.string.details_date_today)));
+		assertTrue("Last access is not correct!", solo.searchText(solo.getString(R.string.details_date_yesterday)));
+		assertTrue("Last access is not correct!", solo.searchText(newDateFormat.format(date)));
+
+
+
+
+	/*	solo.waitForActivity(MainMenuActivity.class.getSimpleName());
+		solo.clickOnButton(solo.getString(R.string.main_menu_programs));
+		solo.waitForActivity(MyProjectsActivity.class.getSimpleName());
+		solo.waitForFragmentById(R.id.fragment_projects_list);
+		solo.waitForText(solo.getString(R.string.default_project_name));
+		UiTestUtils.clickOnTextInList(solo, solo.getString(R.string.default_project_name));*/
 
 
 
 	}
+	private void createStandardProgramIfNeeded() {
+		File rootDirectory = new File(Constants.DEFAULT_ROOT);
+		if (UtilFile.getProjectNames(rootDirectory).isEmpty()) {
+
+			try {
+				DefaultProjectHandler.createAndSaveDefaultProject(getActivity());
+			} catch (IOException e) {
+
+				fail("Standard Project could not be not created");
+			}
+		}
+	}
+	private void createProjectsWithoutSprites() {
+		Project project1 = new Project(getActivity(), UiTestUtils.PROJECTNAME1);
+		StorageHandler.getInstance().saveProject(project1);
+		solo.sleep(2000);
+
+		Project project2 = new Project(getActivity(), UiTestUtils.DEFAULT_TEST_PROJECT_NAME);
+		StorageHandler.getInstance().saveProject(project2);
+		solo.sleep(2000);
+	}
 }
+

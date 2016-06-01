@@ -38,6 +38,8 @@ import android.widget.TextView;
 
 import com.robotium.solo.Solo;
 
+import junit.framework.Assert;
+
 import org.catrobat.catroid.ProjectManager;
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.DefaultProjectHandler;
@@ -1013,6 +1015,20 @@ public class ProjectActivityTest extends BaseActivityInstrumentationTestCase<Mai
 				solo.searchText(solo.getString(R.string.dialog_confirm_delete_multiple_objects_title)));
 
 		solo.clickOnText(no);
+	}
+
+	public void testRenameProgram() {
+		UiTestUtils.getIntoSpritesFromMainMenu(solo);
+		solo.sendKey(solo.MENU);
+		solo.clickOnMenuItem(solo.getString(R.string.rename_program));
+		solo.waitForDialogToOpen();
+		solo.enterText(0, "Test Project Name");
+		String newName = solo.getEditText(0).getText().toString();
+		solo.clickOnButton(solo.getString(R.string.ok));
+		solo.waitForActivity(ProjectActivity.class);
+		Assert.assertTrue(solo.searchText(newName));
+		assertEquals(ProjectManager.getInstance().getCurrentProject().getName(), newName);
+
 	}
 
 	public void testChooseNoOnDeleteQuestionInActionMode() {

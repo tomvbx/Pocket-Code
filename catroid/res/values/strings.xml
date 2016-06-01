@@ -27,6 +27,8 @@
     <string name="app_name">Snicker</string>
     <string name="cancel_button">Cancel</string>
     <string name="rename">Rename</string>
+    <string name="rename_objects">Rename Objects</string>
+    <string name="rename_program">Rename Program</string>
     <string name="delete">Delete</string>
     <string name="menu_item_move_down">Move down</string>
     <string name="menu_item_move_up">Move up</string>

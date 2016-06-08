@@ -22,9 +22,11 @@
  */
 package org.catrobat.catroid.uitest.ui.fragment;
 
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.test.UiThreadTest;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -59,7 +61,9 @@ import org.catrobat.catroid.ui.MainMenuActivity;
 import org.catrobat.catroid.ui.ScriptActivity;
 import org.catrobat.catroid.ui.SettingsActivity;
 import org.catrobat.catroid.ui.adapter.BackPackScriptAdapter;
+import org.catrobat.catroid.ui.adapter.BrickAdapter;
 import org.catrobat.catroid.ui.controller.BackPackListManager;
+import org.catrobat.catroid.ui.dragndrop.DragAndDropListView;
 import org.catrobat.catroid.ui.fragment.BackPackScriptFragment;
 import org.catrobat.catroid.ui.fragment.FormulaEditorFragment;
 import org.catrobat.catroid.ui.fragment.ScriptFragment;
@@ -660,6 +664,14 @@ public class ScriptFragmentTest extends BaseActivityInstrumentationTestCase<Main
 		}
 
 		assertEquals("Wrong number of bricks left", 2, numberOfBricks);
+	}
+
+	public void testIfClickDialogHasImageTitle() {
+		UiTestUtils.createTestProjectIfBricks();
+		UiTestUtils.getIntoScriptActivityFromMainMenu(solo);
+		solo.clickInList(1);
+		solo.waitForDialogToOpen();
+		assertNotNull(solo.getView(R.id.drag_and_drop_list_view_image_view));
 	}
 
 	public void testDeleteItem() {

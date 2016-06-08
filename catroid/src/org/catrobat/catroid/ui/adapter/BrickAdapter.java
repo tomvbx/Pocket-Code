@@ -50,6 +50,7 @@ import android.widget.ListView;
 
 import org.catrobat.catroid.ProjectManager;
 import org.catrobat.catroid.R;
+import org.catrobat.catroid.common.ScreenValues;
 import org.catrobat.catroid.content.Script;
 import org.catrobat.catroid.content.Sprite;
 import org.catrobat.catroid.content.StartScript;
@@ -65,6 +66,7 @@ import org.catrobat.catroid.content.bricks.UserBrick;
 import org.catrobat.catroid.content.bricks.UserBrickParameter;
 import org.catrobat.catroid.content.bricks.UserScriptDefinitionBrick;
 import org.catrobat.catroid.ui.BackPackActivity;
+import org.catrobat.catroid.ui.BrickLayout;
 import org.catrobat.catroid.ui.ScriptActivity;
 import org.catrobat.catroid.ui.ViewSwitchLock;
 import org.catrobat.catroid.ui.controller.BackPackListManager;
@@ -75,6 +77,7 @@ import org.catrobat.catroid.ui.dragndrop.DragAndDropListener;
 import org.catrobat.catroid.ui.fragment.AddBrickFragment;
 import org.catrobat.catroid.ui.fragment.ScriptFragment;
 import org.catrobat.catroid.utils.ToastUtil;
+import org.catrobat.catroid.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -980,6 +983,51 @@ public class BrickAdapter extends BaseAdapter implements DragAndDropListener, On
 		return alertDialog;
 	}
 
+	public ImageView getImageViewForItemView(View view) {
+
+		BrickLayout brickLayout = null;
+		ViewGroup group = (ViewGroup) view;
+
+		while (group instanceof LinearLayout) {
+			if (group.getChildCount() > 0) {
+				group = (ViewGroup)group.getChildAt(group.getChildCount() - 1);
+			}
+			else {
+				break;
+			}
+		}
+
+		if (group instanceof BrickLayout) {
+			brickLayout = (BrickLayout) group;
+			brickLayout.enableLargeMode(true);
+		}
+
+		boolean drawingCacheEnabled = view.isDrawingCacheEnabled();
+		view.setDrawingCacheEnabled(true);
+
+		view.measure(View.MeasureSpec.makeMeasureSpec(ScreenValues.SCREEN_WIDTH, View.MeasureSpec.EXACTLY), View.MeasureSpec
+				.makeMeasureSpec(Utils.getPhysicalPixels(400, getContext()),
+						View.MeasureSpec.AT_MOST));
+		view.layout(0, 0, ScreenValues.SCREEN_WIDTH, view.getMeasuredHeight());
+
+		view.setDrawingCacheBackgroundColor(Color.TRANSPARENT);
+		view.buildDrawingCache(true);
+
+		ImageView imageView = null;
+		if (view.getDrawingCache() != null) {
+			Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+
+			imageView = dragAndDropListView.getGlowingBorder(bitmap);
+		}
+		if (brickLayout != null)
+			brickLayout.enableLargeMode(false);
+
+		view.setDrawingCacheEnabled(drawingCacheEnabled);
+		notifyDataSetChanged();
+
+		return imageView;
+	}
+
 	@Override
 	public void onClick(final View view) {
 		if (!viewSwitchLock.tryLock()) {
@@ -1018,16 +1066,8 @@ public class BrickAdapter extends BaseAdapter implements DragAndDropListener, On
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-		boolean drawingCacheEnabled = view.isDrawingCacheEnabled();
-		view.setDrawingCacheEnabled(true);
-		view.setDrawingCacheBackgroundColor(Color.TRANSPARENT);
-		view.buildDrawingCache(true);
-
-		if (view.getDrawingCache() != null) {
-			Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-			view.setDrawingCacheEnabled(drawingCacheEnabled);
-
-			ImageView imageView = dragAndDropListView.getGlowingBorder(bitmap);
+		ImageView imageView = getImageViewForItemView(view);
+		if (imageView != null) {
 			builder.setCustomTitle(imageView);
 		}
 

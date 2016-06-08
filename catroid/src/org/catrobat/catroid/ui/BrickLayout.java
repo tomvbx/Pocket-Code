@@ -32,7 +32,6 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,12 +69,25 @@ public class BrickLayout extends ViewGroup {
 	private int orientation = 0;
 	protected boolean debugDraw = true;
 
+	private boolean forceLargeMode = false;
+
 	protected LinkedList<LineData> lines;
 
 	public BrickLayout(Context context) {
 		super(context);
 		allocateLineData();
 		this.readStyleParameters(context, null);
+	}
+
+	public void enableLargeMode(boolean value) {
+		forceLargeMode = value;
+		for(int i=0; i < getChildCount(); i++) {
+			View child = getChildAt(i);
+			LayoutParams layoutParams = (LayoutParams) child.getLayoutParams();
+			if (layoutParams.textField)
+				((TextView) child).setSingleLine(!value);
+		}
+		requestLayout();
 	}
 
 	public BrickLayout(Context context, AttributeSet attributeSet) {
@@ -190,6 +202,9 @@ public class BrickLayout extends ViewGroup {
 				lastChildWasSpinner = getChildAt(i - 1) instanceof Spinner;
 			}
 			newLine = newLine || child instanceof Spinner || lastChildWasSpinner;
+
+			if (forceLargeMode)
+				newLine = true;
 
 			if (newLine) {
 				int childWidthNotCountingField = (layoutParams.textField ? childWidth : 0);

@@ -39,14 +39,21 @@ public class GraphicDirectionSensitiveActivityTest extends ActivityInstrumentati
 		solo.sleep(500);
         solo.clickOnText(getActivity().getString(R.string.brick_place_at));
 		solo.sleep(500);
-		solo.clickOnText("Edit Formula");
+		solo.clickOnText("ویرایش فرمول");
 		solo.sleep(500);
 		solo.clickOnButton(getActivity().getString(R.string.number_1));
 		solo.sleep(500);
 		solo.clickOnActionBarItem(R.id.menu_undo);
+		String number1 = "0 ";
+		EditText et=(EditText) solo.getView(R.id.formula_editor_edit_field);
+		String st=et.getText().toString();
+		assertEquals(number1,st);
 		solo.sleep(1000);
 		solo.clickOnActionBarItem(R.id.menu_redo);
+		String number2 = "1 ";
+		EditText ett =(EditText) solo.getView(R.id.formula_editor_edit_field);
+		String stt =ett.getText().toString();
+		assertEquals(number2, stt);
 		solo.sleep(3000);
 	}
 }
-

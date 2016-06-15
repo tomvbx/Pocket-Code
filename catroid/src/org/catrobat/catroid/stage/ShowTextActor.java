@@ -23,7 +23,16 @@
 
 package org.catrobat.catroid.stage;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.opengl.GLES20;
+import android.opengl.GLUtils;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -43,7 +52,6 @@ public class ShowTextActor extends Actor {
 	private String variableName;
 	private String linkedVariableName;
 	private float scale = 3f;
-	private BitmapFont font;
 	String variableValue;
 
 	public ShowTextActor(String text, int x, int y) {
@@ -51,7 +59,34 @@ public class ShowTextActor extends Actor {
 		this.posX = x;
 		this.posY = y;
 		this.linkedVariableName = variableName;
-		init();
+	}
+
+	private Texture textAsTexture(String text, float textSize, int a, int r, int b, int g) {
+		Paint paint = new Paint();
+		paint.setTextSize(textSize);
+		paint.setARGB(a, r, b, g);
+		paint.setTextAlign(Paint.Align.LEFT);
+		float baseline = -paint.ascent();
+		int width = (int) (paint.measureText(text) + 0.5f);
+		int height = (int) (baseline + paint.descent() + 0.5f);
+		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		canvas.drawText(text, 0, baseline, paint);
+
+		Texture tex = new Texture(bitmap.getWidth(), bitmap.getHeight(), Pixmap.Format.RGBA8888);
+		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, tex.getTextureObjectHandle());
+		GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
+		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
+		bitmap.recycle();
+
+		return tex;
+	}
+
+	private void drawText(Batch batch, String text) {
+		Texture tex = textAsTexture(variableValue, 25 * scale, 0xff, 0, 0, 0);
+		batch.draw(tex, posX, posY);
+		batch.flush();
+		tex.dispose();
 	}
 
 	@Override
@@ -64,13 +99,13 @@ public class ShowTextActor extends Actor {
 		List<UserVariable> spriteVariableList = spriteVariableMap.get(currentSprite);
 
 		if (variableName.equals(Constants.NO_VARIABLE_SELECTED)) {
-			font.draw(batch, variableName, posX, posY);
+			drawText(batch, variableValue);
 		} else {
 			for (UserVariable variable : projectVariableList) {
 				if (variable.getName().equals(variableName)) {
 					variableValue = variable.getValue().toString();
 					if (variable.getVisible()) {
-						font.draw(batch, variableValue, posX, posY);
+						drawText(batch, variableValue);
 					}
 					break;
 				}
@@ -80,19 +115,13 @@ public class ShowTextActor extends Actor {
 					if (variable.getName().equals(variableName)) {
 						variableValue = variable.getValue().toString();
 						if (variable.getVisible()) {
-							font.draw(batch, variableValue, posX, posY);
+							drawText(batch, variableValue);
 						}
 						break;
 					}
 				}
 			}
 		}
-	}
-
-	private void init() {
-		font = new BitmapFont();
-		font.setColor(Color.BLACK);
-		font.getData().setScale(scale);
 	}
 
 	public void setX(int x) {

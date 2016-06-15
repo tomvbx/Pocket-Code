@@ -29,12 +29,9 @@ import android.graphics.Paint;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import org.catrobat.catroid.ProjectManager;
@@ -61,10 +58,12 @@ public class ShowTextActor extends Actor {
 		this.linkedVariableName = variableName;
 	}
 
-	private Texture textAsTexture(String text, float textSize, int a, int r, int b, int g) {
+	private void drawText(Batch batch, String text) {
+		// Convert to bitmap
 		Paint paint = new Paint();
-		paint.setTextSize(textSize);
-		paint.setARGB(a, r, b, g);
+		paint.setTextSize(16 * scale);
+		paint.setARGB(0xff, 0, 0, 0);
+		paint.setAntiAlias(true);
 		paint.setTextAlign(Paint.Align.LEFT);
 		float baseline = -paint.ascent();
 		int width = (int) (paint.measureText(text) + 0.5f);
@@ -73,17 +72,12 @@ public class ShowTextActor extends Actor {
 		Canvas canvas = new Canvas(bitmap);
 		canvas.drawText(text, 0, baseline, paint);
 
+		// Convert to texture, draw and dispose
 		Texture tex = new Texture(bitmap.getWidth(), bitmap.getHeight(), Pixmap.Format.RGBA8888);
 		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, tex.getTextureObjectHandle());
 		GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
 		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
 		bitmap.recycle();
-
-		return tex;
-	}
-
-	private void drawText(Batch batch, String text) {
-		Texture tex = textAsTexture(variableValue, 25 * scale, 0xff, 0, 0, 0);
 		batch.draw(tex, posX, posY);
 		batch.flush();
 		tex.dispose();

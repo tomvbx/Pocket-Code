@@ -24,7 +24,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- General terms -->
-    <string name="app_name">Pocket Code</string>
+    <string name="app_name">Snicker</string>
     <string name="cancel_button">Cancel</string>
     <string name="rename">Rename</string>
     <string name="delete">Delete</string>
@@ -76,6 +76,8 @@
     <string name="nothing_to_rename">Nothing to rename</string>
     <string name="unpack_background">Program\'s background will be replaced</string>
     <!--  -->
+
+
 
 
     <!-- Main menu activity -->
@@ -1097,5 +1099,92 @@
     <string name="error_flash_front_camera">"The flash can be used with the back camera only. Please add a \"Use
         camera\" brick and change to your device\'s back camera. "</string>
     <!-- -->
+
+    <!-- File size related strings -->
+    <string name="Byte">Byte</string>
+    <string name="Byte_short">B</string>
+
+    <string name="kiloByte">kiloByte</string>
+    <string name="kiloByte_short">kB</string>
+
+    <string name="MegaByte">MegaByte</string>
+    <string name="MegaByte_short">MB</string>
+
+    <string name="preference_title_change_font">Change Font</string>
+    <string name="choose_the_font">Choose the Font Type:</string>
+
+    <string name="please_restart_the_app">please restart The Application for the applied changes to take effect</string>
+    <string name="please_restart_for_default">please restart The Application for Default changes to take effect</string>
+    <!-- FONTS NAMES - Don't Need To Change -->
+    <string name="Tahoma">Tahoma</string>
+    <string name="Default">Default</string>
+    <string name="DroidSans">DroidSans</string>
+    <string name="Simplified">Simplified Arabic</string>
+    <string name="Arial">Arial</string>
+    <string name="Andalus">Andalus</string>
+    <string name="Meiryo">Meiryo</string>
+    <string name="HelveticaNeueLT">HelveticaNeueLT</string>
+    <string name="Times">Times New Roman</string>
+    <string name="Bell">Bell MT</string>
+
+    <string name="GigaByte">GigaByte</string>
+    <string name="GigaByte_short">GB</string>
+
+    <string name="TeraByte">TeraByte</string>
+    <string name="TeraByte_short">TB</string>
+
+    <string name="PetaByte">PetaByte</string>
+    <string name="PetaByte_short">TB</string>
+
+    <string name="ExaByte">ExaByte</string>
+    <string name="ExaByte_short">EB</string>
+    <!-- -->
+
+    <!-- languages activity -->
+    <string name="preference_title_change_language">Change Language </string>
+
+    <string name="arabic">Arabic</string>
+    <string name="bosnian">Bosnian</string>
+    <string name="danish">Danish</string>
+    <string name="german">German</string>
+    <string name="english_Raute">English(Raute)</string>
+    <string name="english_Canada">English(Canada)</string>
+    <string name="english_United_Kingdom">English(United Kingdom)</string>
+    <string name="spanish">Spanish</string>
+    <string name="farsi">Farsi</string>
+    <string name="french">French</string>
+    <string name="gujarati">Gujarati</string>
+    <string name="hindi">Hindi</string>
+    <string name="croatian">Croatian</string>
+    <string name="hungarian">Hungarian</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="italian">Italian</string>
+    <string name="japanese">Japanese</string>
+    <string name="korean">Korean</string>
+    <string name="macedonian">Macedonian</string>
+    <string name="malay">Malay</string>
+    <string name="dutch_Netherlands">Dutch(Netherlands)</string>
+    <string name="norwegian">Norwegian</string>
+    <string name="polish">Polish</string>
+    <string name="pashto">Pashto</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="portuguese_Brazil">Portuguese(Brazil)</string>
+    <string name="romanian">Romanian</string>
+    <string name="russian">Russian</string>
+    <string name="sindhi">Sindhi</string>
+    <string name="slovenian">Slovenian</string>
+    <string name="serbian_rCS">Serbian(rCS)</string>
+    <string name="Serbian_rSP">Serbian(rSP)</string>
+    <string name="swedish">Swedish</string>
+    <string name="tamil">Tamil</string>
+    <string name="telugu">Telugu</string>
+    <string name="thai">Thai</string>
+    <string name="turkish">Turkish</string>
+    <string name="urdu">Urdu</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="chinese_rCN">Chinese(rCN)</string>
+    <string name="chinese_rTW">Chinese(rTW)</string>
+
+    <string name="choose_the_language">Choose the Language :</string>
 
 </resources>

@@ -22,10 +22,12 @@
  */
 package org.catrobat.catroid.ui;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Spannable;
@@ -78,6 +80,8 @@ public class MainMenuActivity extends BaseActivity implements OnLoadProjectCompl
 	private CallbackManager callbackManager;
 	private SignInDialog signInDialog;
 
+
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -90,7 +94,6 @@ public class MainMenuActivity extends BaseActivity implements OnLoadProjectCompl
 		Utils.updateScreenWidthAndHeight(this);
 
 		setContentView(R.layout.activity_main_menu);
-
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayUseLogoEnabled(true);
 		actionBar.setTitle(R.string.app_name);

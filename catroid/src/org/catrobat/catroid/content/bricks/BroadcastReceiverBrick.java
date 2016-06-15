@@ -51,6 +51,8 @@ public class BroadcastReceiverBrick extends ScriptBrick implements BroadcastMess
 	private BroadcastScript receiveScript;
 	private transient String broadcastMessage;
 
+	public BroadcastReceiverBrick() {}
+
 	public BroadcastReceiverBrick(String broadcastMessage) {
 		this.broadcastMessage = broadcastMessage;
 	}

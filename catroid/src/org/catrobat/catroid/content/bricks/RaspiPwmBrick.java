@@ -47,6 +47,12 @@ public class RaspiPwmBrick extends FormulaBrick {
 	private static final long serialVersionUID = 1L;
 	private transient View prototypeView;
 
+	public RaspiPwmBrick() {
+		addAllowedBrickField(BrickField.RASPI_DIGITAL_PIN_NUMBER);
+		addAllowedBrickField(BrickField.RASPI_PWM_FREQUENCY);
+		addAllowedBrickField(BrickField.RASPI_PWM_PERCENTAGE);
+	}
+
 	public RaspiPwmBrick(int pinNumber, double pwmFrequency, double pwmPercentage) {
 		initializeBrickFields(new Formula(pinNumber), new Formula(pwmFrequency), new Formula(pwmPercentage));
 	}

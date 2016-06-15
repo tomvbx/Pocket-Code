@@ -25,9 +25,12 @@ package org.catrobat.catroid.ui;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.view.ViewCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.TextAppearanceSpan;
@@ -62,6 +65,7 @@ import org.catrobat.catroid.utils.UtilFile;
 import org.catrobat.catroid.utils.UtilZip;
 import org.catrobat.catroid.utils.Utils;
 
+import java.util.Locale;
 import java.util.concurrent.locks.Lock;
 
 public class MainMenuActivity extends BaseActivity implements OnLoadProjectCompleteListener {
@@ -226,6 +230,14 @@ public class MainMenuActivity extends BaseActivity implements OnLoadProjectCompl
 	public void startWebViewActivity(String url) {
 		Intent intent = new Intent(MainMenuActivity.this, WebViewActivity.class);
 		intent.putExtra(WebViewActivity.INTENT_PARAMETER_URL, url);
+
+		Configuration config = getResources().getConfiguration();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+			intent.putExtra(WebViewActivity.TEXT_RTL, config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL);
+		}
+
+		intent.putExtra(WebViewActivity.TEXT_LANG, Locale.getDefault().getLanguage());
+
 		startActivity(intent);
 	}
 

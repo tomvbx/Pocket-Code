@@ -60,6 +60,8 @@ public class WebViewActivity extends BaseActivity {
 
 	public static final String INTENT_PARAMETER_URL = "url";
 	public static final String ANDROID_APPLICATION_EXTENSION = ".apk";
+	public static final String TEXT_RTL = "text_rtl";
+	public static final String TEXT_LANG = "text_lang";
 	public static final String MEDIA_FILE_PATH = "media_file_path";
 	public static final String CALLING_ACTIVITY = "calling_activity";
 	private static final String FILENAME_TAG = "fname=";
@@ -70,6 +72,8 @@ public class WebViewActivity extends BaseActivity {
 	private String callingActivity;
 	private ProgressDialog progressDialog;
 	private Intent resultIntent = new Intent();
+	private boolean rtl;
+	private String language;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +89,14 @@ public class WebViewActivity extends BaseActivity {
 			url = Constants.BASE_URL_HTTPS;
 		}
 		callingActivity = intent.getStringExtra(CALLING_ACTIVITY);
+
+		rtl = intent.getBooleanExtra(TEXT_RTL, false);
+		language = intent.getStringExtra(TEXT_LANG);
+		if (language == null)
+			language = "en";
+
+		CookieManager manager = CookieManager.getInstance();
+		manager.setCookie(url, "hl=" + language);
 
 		webView = (WebView) findViewById(R.id.webView);
 		webView.setWebChromeClient(new WebChromeClient());
@@ -178,6 +190,9 @@ public class WebViewActivity extends BaseActivity {
 		@Override
 		public void onPageFinished(WebView view, String url) {
 			callMainMenu = true;
+
+			if(rtl)
+				webView.loadUrl("javascript: document.documentElement.setAttribute(\"dir\", \"rtl\")");
 		}
 
 		@Override

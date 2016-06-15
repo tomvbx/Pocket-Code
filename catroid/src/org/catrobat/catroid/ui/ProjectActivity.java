@@ -61,6 +61,7 @@ import org.catrobat.catroid.transfers.GetFacebookUserInfoTask;
 import org.catrobat.catroid.ui.adapter.SpriteAdapter;
 import org.catrobat.catroid.ui.controller.BackPackListManager;
 import org.catrobat.catroid.ui.dialogs.NewSpriteDialog;
+import org.catrobat.catroid.ui.dialogs.RenameProjectDialog;
 import org.catrobat.catroid.ui.dialogs.SignInDialog;
 import org.catrobat.catroid.ui.fragment.SpritesListFragment;
 import org.catrobat.catroid.utils.ToastUtil;
@@ -68,7 +69,7 @@ import org.catrobat.catroid.utils.Utils;
 
 import java.util.concurrent.locks.Lock;
 
-public class ProjectActivity extends BaseActivity {
+public class ProjectActivity extends BaseActivity implements RenameProjectDialog.OnProjectRenameListener {
 
 	private static final String TAG = ProjectActivity.class.getSimpleName();
 
@@ -137,13 +138,23 @@ public class ProjectActivity extends BaseActivity {
 		return super.onCreateOptionsMenu(menu);
 	}
 
+
+	private void showRenameDialog() {
+		RenameProjectDialog dialogRenameProject = RenameProjectDialog.newInstance(Utils.getCurrentProjectName(this));
+		dialogRenameProject.setOnProjectRenameListener(this);
+		dialogRenameProject.show(getFragmentManager(), RenameProjectDialog.DIALOG_FRAGMENT_TAG);
+	}
+
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.show_details:
 				handleShowDetails(!spritesListFragment.getShowDetails(), item);
 				break;
-
+			case R.id.rename_program:
+				showRenameDialog();
+				break;
 			case R.id.backpack:
 				showBackPackChooser();
 				break;
@@ -364,5 +375,13 @@ public class ProjectActivity extends BaseActivity {
 
 	public void setSignInDialog(SignInDialog signInDialog) {
 		this.signInDialog = signInDialog;
+	}
+
+	@Override
+	public void onProjectRename(boolean isCurrentProject) {
+		Intent intent = getIntent();
+		finish();
+		intent.putExtra(Constants.PROJECTNAME_TO_LOAD, ProjectManager.getInstance().getCurrentProject().getName());
+		startActivity(intent);
 	}
 }

@@ -148,8 +148,7 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.ProgramMenuActivity"
-            android:screenOrientation="portrait"
-            android:supportsRtl="true" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ScriptActivity"
             android:screenOrientation="portrait"

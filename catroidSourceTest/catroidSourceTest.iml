@@ -21,8 +21,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
@@ -33,6 +33,6 @@
     <orderEntry type="library" exported="" scope="TEST" name="mockito-core-1.10.19" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="objenesis-2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="_home_zlatko_workspace_uni_Pocket_Code_Pocket_Code_build_intermediates_classes_debug" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="D__nnn_Pocket_Code_build_intermediates_classes_debug" level="project" />
   </component>
 </module>

@@ -119,6 +119,7 @@
     <string name="preference_raspi_help_summary">Get help on how to configure the connection settings</string>
     <string name="preference_raspi_host">Raspberry Pi IP-/Host-Address</string>
     <string name="preference_raspi_port">Raspberry Pi Port</string>
+
     <!--  -->
 
 

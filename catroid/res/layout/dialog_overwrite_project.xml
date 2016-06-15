@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialog_overwrite_project_edit_line"
-            android:layout_gravity="right"
+            android:layout_gravity="right|end"
             android:inputType="text"
             android:visibility="gone" />
     </RelativeLayout >

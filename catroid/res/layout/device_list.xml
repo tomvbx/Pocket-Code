@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:paddingLeft="6dp"
+        android:paddingStart="6dp"
         android:text="@string/title_paired_devices"
         android:textSize="15sp"
         android:visibility="gone" />
@@ -53,6 +54,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="6dp"
+        android:paddingStart="6dp"
         android:layout_marginTop="10dp"
         android:text="@string/title_other_devices"
         android:textSize="15sp"

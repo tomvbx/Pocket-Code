@@ -123,9 +123,12 @@
              android:layout_width="wrap_content"
              android:layout_marginLeft="10dp"
              android:layout_marginRight="10dp"
+             android:layout_marginStart="10dp"
+             android:layout_marginEnd="10dp"
              android:layout_marginTop="15dp"
             android:layout_below="@+id/dialog_register_password_confirm"
              android:layout_toRightOf="@+id/dialog_register_checkbox_showpassword"
+             android:layout_toEndOf="@+id/dialog_register_checkbox_showpassword"
              android:gravity="center_horizontal"
              android:text="@string/show_password" >
         </TextView>

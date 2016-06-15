@@ -58,6 +58,8 @@
             android:layout_below="@+id/project_name_edittext"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:orientation="vertical">
 
             <RadioButton

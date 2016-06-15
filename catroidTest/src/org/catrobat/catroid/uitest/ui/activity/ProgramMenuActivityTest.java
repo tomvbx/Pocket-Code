@@ -26,7 +26,10 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
+import android.test.ViewAsserts;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 
 import com.robotium.solo.Solo;
 
@@ -45,6 +48,7 @@ import org.catrobat.catroid.content.bricks.SetXBrick;
 import org.catrobat.catroid.content.bricks.SetYBrick;
 import org.catrobat.catroid.stage.StageActivity;
 import org.catrobat.catroid.ui.MainMenuActivity;
+import org.catrobat.catroid.ui.MyProjectsActivity;
 import org.catrobat.catroid.ui.ProgramMenuActivity;
 import org.catrobat.catroid.ui.ProjectActivity;
 import org.catrobat.catroid.ui.SettingsActivity;
@@ -76,6 +80,43 @@ public class ProgramMenuActivityTest extends BaseActivityInstrumentationTestCase
 		lookFile.delete();
 		super.tearDown();
 	}
+
+	public boolean isRTL() {
+		return TextUtils.getLayoutDirectionFromLocale(solo.getCurrentActivity().getResources().getConfiguration().locale) == View.LAYOUT_DIRECTION_RTL;
+	}
+
+	public void testRTL() {
+				solo.clickOnText(solo.getString(R.string.main_menu_continue));
+				assertTrue(solo.waitForActivity(ProjectActivity.class.getSimpleName()));
+				solo.clickInList(1);
+				solo.waitForActivity(ProgramMenuActivity.class.getSimpleName());
+
+				for(int i = 0; i < 3; i++) {
+					TextView view1 = solo.getButton(i);
+
+					assertEquals(view1.getTextAlignment(), View.TEXT_ALIGNMENT_VIEW_START);
+					if (isRTL())
+						assertTrue(view1.getCompoundDrawables()[2] != null);
+					else
+						assertTrue(view1.getCompoundDrawables()[0] != null);
+		}
+
+
+		solo.goBackToActivity(MainMenuActivity.class.getSimpleName());
+		assertTrue(solo.waitForActivity(MainMenuActivity.class.getSimpleName()));
+		solo.clickOnButton(getActivity().getString(R.string.main_menu_programs));
+		assertTrue(solo.waitForActivity(MyProjectsActivity.class.getSimpleName()));
+		solo.clickOnText(getActivity().getString(R.string.default_project_name));
+		//solo.clickInList(2);
+		assertTrue(solo.waitForActivity(ProjectActivity.class.getSimpleName()));
+		//solo.clickInList(2, 1);
+		solo.clickOnText(getActivity().getString(R.string.default_project_cloud_sprite_name_1));
+		assertTrue(solo.waitForActivity(ProgramMenuActivity.class.getSimpleName()));
+		assertTrue(UiTestUtils.clickOnTextInList(solo, solo.getString(R.string.sounds)));
+
+
+	}
+
 
 	public void testOrientation() throws NameNotFoundException {
 		/// Method 1: Assert it is currently in portrait mode.

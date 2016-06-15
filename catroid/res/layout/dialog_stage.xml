@@ -47,6 +47,8 @@
         android:layout_marginTop="12dp"
         android:layout_alignLeft="@+id/stage_dialog_menu"
         android:layout_alignRight="@+id/stage_dialog_menu"
+        android:layout_alignStart="@+id/stage_dialog_menu"
+        android:layout_alignEnd="@+id/stage_dialog_menu"
         android:layout_alignTop="@+id/stage_dialog_menu"
         android:orientation="horizontal" >
 
@@ -94,8 +96,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/stage_dialog_menu"
         android:layout_toLeftOf="@+id/stage_dialog_menu"
+        android:layout_toStartOf="@+id/stage_dialog_menu"
         android:background="@drawable/stage_dialog_background_side" />
 
     <ImageView
@@ -104,8 +108,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/stage_dialog_menu"
         android:layout_toRightOf="@+id/stage_dialog_menu"
+        android:layout_toEndOf="@+id/stage_dialog_menu"
         android:background="@drawable/stage_dialog_background_side" />
 
     <ImageButton
@@ -114,6 +120,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
+       android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:background="@color/stage_dialog_background_color"
         android:layout_margin="20dp"

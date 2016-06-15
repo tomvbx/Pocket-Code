@@ -54,7 +54,7 @@
             android:id="@+id/brick_note_prototype_text_view"
             style="@style/BrickPrototypeTextView"
             android:layout_width="match_parent"
-            android:gravity="left" >
+            android:gravity="left|start">
         </TextView >
 
         <EditText
@@ -64,7 +64,7 @@
             android:layout_gravity="center_vertical"
             app:layout_inputType="text"
             app:layout_textField="true"
-            android:gravity="left"
+	    android:gravity="start|left"
             android:maxLines="3"
             android:minLines="1"
             android:singleLine="false" />

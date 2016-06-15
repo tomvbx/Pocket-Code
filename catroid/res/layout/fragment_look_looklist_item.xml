@@ -34,7 +34,9 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="13dp"
-        android:gravity="right"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="13dp"
+        android:gravity="right|end"
         android:visibility="gone" />
 
     <RelativeLayout
@@ -52,6 +54,7 @@
             android:layout_height="65dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="9dp"
+            android:layout_marginStart="9dp"
             android:background="@drawable/image_contour"
             android:contentDescription="@string/look"
             android:cropToPadding="true"
@@ -62,9 +65,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/fragment_look_item_image_view"
+            android:layout_toEndOf="@+id/fragment_look_item_image_view"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:paddingLeft="12.5dp" >
+            android:paddingLeft="12.5dp"
+            android:paddingStart="12.5dp">
 
             <TextView
                 android:id="@+id/fragment_look_item_name_text_view"
@@ -103,6 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:paddingStart="39dp"
                     android:paddingLeft="39dp" >
 
                     <TextView

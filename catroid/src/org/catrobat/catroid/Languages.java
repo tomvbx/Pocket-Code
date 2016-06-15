@@ -193,6 +193,7 @@ public class Languages extends Activity {
         DisplayMetrics displayMetrics = resources.getDisplayMetrics();
         Configuration conf = resources.getConfiguration();
         conf.locale = Language;
+        conf.setLayoutDirection(Language);
         resources.updateConfiguration(conf, displayMetrics);
     }
 

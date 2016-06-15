@@ -28,10 +28,14 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.LayoutDirection;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -70,12 +74,25 @@ public class BrickLayout extends ViewGroup {
 	private int orientation = 0;
 	protected boolean debugDraw = true;
 
+	private boolean forceLargeMode = false;
+
 	protected LinkedList<LineData> lines;
 
 	public BrickLayout(Context context) {
 		super(context);
 		allocateLineData();
 		this.readStyleParameters(context, null);
+	}
+
+	public void enableLargeMode(boolean value) {
+		forceLargeMode = value;
+		for(int i=0; i < getChildCount(); i++) {
+			View child = getChildAt(i);
+			LayoutParams layoutParams = (LayoutParams) child.getLayoutParams();
+			if (layoutParams.textField)
+				((TextView) child).setSingleLine(!value);
+		}
+		requestLayout();
 	}
 
 	public BrickLayout(Context context, AttributeSet attributeSet) {
@@ -98,6 +115,40 @@ public class BrickLayout extends ViewGroup {
 				background.setAutoMirrored(true);
 			}
 		}
+	}
+
+	@Override
+	protected void onDraw(Canvas canvas) {
+		// XXX: There is a bug in nine patch drawable with automirror
+		// where it breaks the transformation matrix for drawing the
+		// child views afterwards. This detects the reverted matrix
+		// and resets it.
+		float[] values = new float[10];
+		canvas.getMatrix().getValues(values);
+		if (values[0] < 0.0f)
+			canvas.setMatrix(new Matrix());
+
+		super.onDraw(canvas);
+	}
+
+		@Override
+	protected void dispatchDraw(Canvas canvas) {
+		// Drawable.setAutoMirrored is KITKAT+, this is the (hacky) fallback code
+		// for mirroring the background.
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && Build.VERSION.SDK_INT < Build
+				.VERSION_CODES.KITKAT && getLayoutDirection() ==
+				LAYOUT_DIRECTION_RTL) {
+			Drawable background = getBackground();
+			int color = getResources().getColor(R.color.application_background_color);
+			canvas.drawColor(color);
+			canvas.save();
+			canvas.translate(background.getBounds().right - background.getBounds().left, 0);
+			canvas.scale(-1.0f, 1.0f);
+			background.draw(canvas);
+			canvas.restore();
+		}
+
+		super.dispatchDraw(canvas);
 	}
 
 	protected void allocateLineData() {
@@ -190,6 +241,9 @@ public class BrickLayout extends ViewGroup {
 				lastChildWasSpinner = getChildAt(i - 1) instanceof Spinner;
 			}
 			newLine = newLine || child instanceof Spinner || lastChildWasSpinner;
+
+			if (forceLargeMode)
+				newLine = true;
 
 			if (newLine) {
 				int childWidthNotCountingField = (layoutParams.textField ? childWidth : 0);

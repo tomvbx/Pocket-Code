@@ -24,7 +24,7 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- General terms -->
-  <string name="app_name">Pocked Code</string>
+  <string name="app_name">Twix Studio</string>
   <string name="cancel_button">Avbryt</string>
   <string name="rename">Byt namn</string>
   <string name="delete">Radera</string>

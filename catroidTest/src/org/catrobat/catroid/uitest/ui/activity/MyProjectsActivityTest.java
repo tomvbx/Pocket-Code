@@ -40,6 +40,7 @@ import android.widget.TextView;
 
 import com.robotium.solo.Solo;
 
+import org.catrobat.catroid.Languages;
 import org.catrobat.catroid.ProjectManager;
 import org.catrobat.catroid.R;
 import org.catrobat.catroid.common.Constants;
@@ -1318,7 +1319,44 @@ public class MyProjectsActivityTest extends BaseActivityInstrumentationTestCase<
 		UiTestUtils.openOptionsMenu(solo);
 		assertTrue("Menu item still says \"Hide Details\"!", solo.searchText(showDetailsText));
 	}
+public void testDateFormatByLocale (){
+	solo.waitForActivity(solo.getString(R.layout.activity_main_menu));
+	solo.clickOnButton(solo.getString(R.string.main_menu_programs));
+	solo.waitForFragmentById(R.id.fragment_projects_list);
+	View ProjectD = solo.getView(R.id.my_projects_activity_list_item_details);
+	solo.waitForView(ProjectD);
+	UiTestUtils.openOptionsMenu(solo);
+	solo.clickOnMenuItem(solo.getString(R.string.show_details));
+	solo.sleep(400);
 
+	ProjectD = solo.getView(R.id.my_projects_activity_list_item_details);
+	assertEquals("Project details are not showing", View.VISIBLE, ProjectD.getVisibility());
+	TextView tv1 = (TextView) ProjectD.findViewById(R.id.my_projects_activity_project_changed_2);
+	String D =tv1.getText().toString();
+	//>>>>>>>>>>>>>>>>>>>>>>>
+	solo.sendKey(solo.MENU);
+	solo.clickOnMenuItem(solo.getString(R.string.settings));
+	solo.waitForActivity(SettingsActivity.class);
+	solo.clickOnMenuItem(solo.getString(R.string.preference_title_change_language));
+	solo.waitForActivity(Languages.class);
+	solo.clickOnMenuItem(solo.getString(R.string.german));
+	solo.waitForActivity(solo.getString(R.layout.activity_main_menu));
+	solo.clickOnButton(solo.getString(R.string.main_menu_programs));
+	solo.waitForFragmentById(R.id.fragment_projects_list);
+	View ProjectD1 = solo.getView(R.id.my_projects_activity_list_item_details);
+	solo.waitForView(ProjectD1);
+	UiTestUtils.openOptionsMenu(solo);
+	solo.clickOnMenuItem(solo.getString(R.string.show_details));
+	solo.sleep(400);
+
+	ProjectD = solo.getView(R.id.my_projects_activity_list_item_details);
+	assertEquals("Project details are not showing", View.VISIBLE, ProjectD.getVisibility());
+	View details_time = ProjectD.findViewById(R.id.my_projects_activity_list_item_details);
+	TextView tv = (TextView) ProjectD.findViewById(R.id.my_projects_activity_project_changed_2);
+	 String DD =tv.getText().toString();
+     assertFalse("Not Same ",D.equals(DD));
+
+}
 	public void testProjectDetailsLastAccess() {
 		String showDetailsText = solo.getString(R.string.show_details);
 

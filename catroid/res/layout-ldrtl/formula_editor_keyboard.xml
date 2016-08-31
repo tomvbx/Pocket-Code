@@ -24,7 +24,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:id="@+id/FormulaEditor">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -59,6 +60,7 @@
             android:layout_weight="0.35"
             android:contentDescription="@string/formula_editor_image_button_description_delete"
             android:src="@android:drawable/ic_input_delete"
+            android:scaleX="-1"
             />
 
     </LinearLayout >

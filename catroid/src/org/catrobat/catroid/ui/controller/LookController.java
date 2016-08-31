@@ -128,7 +128,8 @@ public final class LookController {
 	private void handleDetails(LookData lookData, LookViewHolder holder, LookBaseAdapter lookAdapter) {
 		if (lookAdapter.getShowDetails()) {
 			if (lookData.getAbsolutePath() != null) {
-				holder.lookFileSizeTextView.setText(UtilFile.getSizeAsString(new File(lookData.getAbsolutePath())));
+				holder.lookFileSizeTextView.setText(UtilFile.getSizeAsString(new File(lookData.getAbsolutePath()),
+						lookAdapter.getContext()));
 			}
 			int[] measure = lookData.getMeasure();
 			String measureString = measure[0] + " x " + measure[1];
@@ -286,7 +287,7 @@ public final class LookController {
 	}
 
 	private void copyImageToCatroid(String originalImagePath, Activity activity, List<LookData> lookDataList,
-									LookFragment fragment) {
+			LookFragment fragment) {
 		try {
 			int[] imageDimensions = ImageEditing.getImageDimensions(originalImagePath);
 

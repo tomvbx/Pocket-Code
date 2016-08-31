@@ -23,6 +23,7 @@
 package org.catrobat.catroid.ui.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -146,15 +148,22 @@ public class ProjectAdapter extends ArrayAdapter<ProjectData> {
 		holder.projectName.setText(projectName);
 
 		// set size of project:
-		holder.size.setText(UtilFile.getSizeAsString(new File(Utils.buildProjectPath(projectName))));
+		holder.size.setText(UtilFile.getSizeAsString(new File(Utils.buildProjectPath(projectName)), getContext()));
 
 		//set last changed:
 		Date projectLastModificationDate = new Date(projectData.lastUsed);
 		Date now = new Date();
 		Date yesterday = new Date(now.getTime() - DateUtils.DAY_IN_MILLIS);
+		Resources res = getContext().getResources();
+		Locale current = res.getConfiguration().locale;
+
 		DateFormat mediumDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-		DateFormat shortTimeFormat = DateFormat.getTimeInstance(DateFormat.SHORT);
+		DateFormat shortTimeFormat = DateFormat.getTimeInstance(DateFormat.SHORT,current);
+		//	DateFormat mediumDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		// DateFormat shortTimeFormat = DateFormat.getTimeInstance(DateFormat.SHORT);
+		Date today = Calendar.getInstance().getTime();
 		String projectLastModificationDateString = "";
+
 
 		Calendar nowCalendar = Calendar.getInstance();
 		nowCalendar.setTime(now);

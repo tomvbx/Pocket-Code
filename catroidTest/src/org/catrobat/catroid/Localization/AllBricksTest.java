@@ -51,10 +51,10 @@ public class AllBricksTest extends BaseActivityInstrumentationTestCase<ScriptAct
 
 	public AllBricksTest() {
 		super(ScriptActivity.class);
-		bricks.add(AddItemToUserListBrick.class);
+	    bricks.add(AddItemToUserListBrick.class);
 		bricks.add(ArduinoSendDigitalValueBrick.class);
 		bricks.add(ArduinoSendPWMValueBrick.class);
-		bricks.add(BroadcastBrick.class);
+	    bricks.add(BroadcastBrick.class);
 		bricks.add(BroadcastReceiverBrick.class);
 		bricks.add(BroadcastWaitBrick.class);
 		bricks.add(CameraBrick.class);

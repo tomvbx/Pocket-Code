@@ -1,4 +1,4 @@
-package org.catrobat.catroid.Localization;
+package org.catrobat.catroid.Localization.SoundBricks;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +12,19 @@ import org.catrobat.catroid.content.Script;
 import org.catrobat.catroid.content.Sprite;
 import org.catrobat.catroid.content.StartScript;
 import org.catrobat.catroid.content.bricks.Brick;
-import org.catrobat.catroid.content.bricks.BroadcastBrick;
-import org.catrobat.catroid.content.bricks.BroadcastWaitBrick;
-import org.catrobat.catroid.content.bricks.ChangeXByNBrick;
-import org.catrobat.catroid.content.bricks.ChangeYByNBrick;
+import org.catrobat.catroid.content.bricks.ChangeVolumeByNBrick;
 import org.catrobat.catroid.content.bricks.ForeverBrick;
 import org.catrobat.catroid.content.bricks.IfLogicBeginBrick;
-import org.catrobat.catroid.content.bricks.IfLogicElseBrick;
-import org.catrobat.catroid.content.bricks.IfLogicEndBrick;
 import org.catrobat.catroid.content.bricks.LoopEndBrick;
 import org.catrobat.catroid.content.bricks.LoopEndlessBrick;
 import org.catrobat.catroid.content.bricks.NoteBrick;
+import org.catrobat.catroid.content.bricks.PlaySoundBrick;
 import org.catrobat.catroid.content.bricks.RepeatBrick;
+import org.catrobat.catroid.content.bricks.SetVolumeToBrick;
+import org.catrobat.catroid.content.bricks.SpeakBrick;
+import org.catrobat.catroid.content.bricks.StopAllSoundsBrick;
 import org.catrobat.catroid.content.bricks.WaitBrick;
 import org.catrobat.catroid.content.bricks.WhenBrick;
-import org.catrobat.catroid.content.bricks.WhenNfcBrick;
 import org.catrobat.catroid.content.bricks.WhenStartedBrick;
 import org.catrobat.catroid.ui.ScriptActivity;
 import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
@@ -37,24 +35,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Aiman Awwad on 9/26/2016.
+ * Created by Aiman Awwad on 9/27/2016.
  */
-public class ControlBricksMirroringTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
+public class SoundBricksMirroringTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
 
     private Project project;
     List<Class<? extends Brick>> bricks = new ArrayList<Class<? extends Brick>>();
 
-    public ControlBricksMirroringTest() {
+    public SoundBricksMirroringTest() {
         super(ScriptActivity.class);
-        bricks.add(WaitBrick.class);
-        bricks.add(WhenBrick.class);
-        bricks.add(WhenStartedBrick.class);
-        bricks.add(RepeatBrick.class);
-        bricks.add(NoteBrick.class);
-        bricks.add(LoopEndBrick.class);
-        bricks.add(LoopEndlessBrick.class);
-        bricks.add(IfLogicBeginBrick.class);
-        bricks.add(ForeverBrick.class);
+        bricks.add(ChangeVolumeByNBrick.class);
+        bricks.add(SetVolumeToBrick.class);
+        bricks.add(SpeakBrick.class);
+        bricks.add(StopAllSoundsBrick.class);
+
     }
 
     @Override

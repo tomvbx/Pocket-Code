@@ -21,7 +21,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.catrobat.catroid.Localization;
+package org.catrobat.catroid.Localization.MotionBricks;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,12 +44,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MotionBricksTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
+public class MotionBricksMirroringTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
 
     private Project project;
     List<Class<? extends Brick>> bricks = new ArrayList<Class<? extends Brick>>();
 
-    public MotionBricksTest() {
+    public MotionBricksMirroringTest() {
         super(ScriptActivity.class);
         bricks.add(PlaceAtBrick.class);
         bricks.add(SetYBrick.class);

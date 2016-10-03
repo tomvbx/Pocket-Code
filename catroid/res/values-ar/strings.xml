@@ -451,11 +451,11 @@
   <string name="brick_move">تحرك</string>
   <plurals name="brick_move_n_step_plural">
     <item quantity="zero">خطوة</item>
-    <item quantity="one">step</item>
-    <item quantity="two">steps</item>
-    <item quantity="few">steps</item>
-    <item quantity="many">steps</item>
-    <item quantity="other">steps</item>
+    <item quantity="one">خطوة</item>
+    <item quantity="two">خطوات</item>
+    <item quantity="few">خطوات</item>
+    <item quantity="many">خطوات</item>
+    <item quantity="other">خطوات</item>
   </plurals>
   <string name="brick_turn_left">اتجه إلى اليسار</string>
   <string name="brick_turn_right">اتجه إلى اليمين</string>

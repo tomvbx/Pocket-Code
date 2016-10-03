@@ -152,7 +152,7 @@ public class UploadProjectDialog extends DialogFragment {
 	private void initControls() {
 		currentProjectName = ProjectManager.getInstance().getCurrentProject().getName();
 		currentProjectDescription = ProjectManager.getInstance().getCurrentProject().getDescription();
-		sizeOfProject.setText(UtilFile.getSizeAsString(new File(Constants.DEFAULT_ROOT + "/" + currentProjectName)));
+		sizeOfProject.setText(UtilFile.getSizeAsString(new File(Constants.DEFAULT_ROOT + "/" + currentProjectName), getContext()));
 		projectRename.setVisibility(View.GONE);
 		projectUploadName.setText(currentProjectName);
 		projectDescriptionField.setText(currentProjectDescription);
@@ -258,7 +258,7 @@ public class UploadProjectDialog extends DialogFragment {
 		String username = sharedPreferences.getString(Constants.USERNAME, Constants.NO_USERNAME);
 		Intent uploadIntent = new Intent(getActivity(), ProjectUploadService.class);
 
-		// TODO check this extras - e.g. project description isn't used by web 
+		// TODO check this extras - e.g. project description isn't used by web
 		uploadIntent.putExtra("receiver", new UploadReceiver(new Handler()));
 		uploadIntent.putExtra("uploadName", uploadName);
 		uploadIntent.putExtra("projectDescription", projectDescription);
@@ -279,3 +279,4 @@ public class UploadProjectDialog extends DialogFragment {
 		dismiss();
 	}
 }
+

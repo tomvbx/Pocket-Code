@@ -22,6 +22,7 @@
  */
 package org.catrobat.catroid.test.utiltests;
 
+import android.content.Context;
 import android.os.Environment;
 import android.test.InstrumentationTestCase;
 import android.util.Log;
@@ -85,6 +86,7 @@ public class UtilFileTest extends InstrumentationTestCase {
 	}
 
 	public void testFileSize() throws IOException {
+		Context context = null;
 		for (int i = 0; i < 2; i++) {
 			UtilFile.saveFileToProject("testDirectory", i + "testsound.mp3",
 					org.catrobat.catroid.test.R.raw.longtestsound, getInstrumentation().getContext(),
@@ -93,7 +95,7 @@ public class UtilFileTest extends InstrumentationTestCase {
 
 		double expectedSizeInKilobytes = 84.2;
 		assertEquals("Unexpected file size String", String.format("%.1f KB", expectedSizeInKilobytes),
-				UtilFile.getSizeAsString(testDirectory));
+				UtilFile.getSizeAsString(testDirectory,context));
 
 		for (int i = 2; i < 48; i++) {
 			UtilFile.saveFileToProject("testDirectory", i + "testsound.mp3",
@@ -102,7 +104,7 @@ public class UtilFileTest extends InstrumentationTestCase {
 		}
 		DecimalFormat decimalFormat = new DecimalFormat("#.0");
 		String expected = decimalFormat.format(2.0) + " MB";
-		assertEquals("Unexpected file size String", expected, UtilFile.getSizeAsString(testDirectory));
+		assertEquals("Unexpected file size String", expected, UtilFile.getSizeAsString(testDirectory,context));
 
 		PrintWriter printWriter = null;
 
@@ -121,7 +123,7 @@ public class UtilFileTest extends InstrumentationTestCase {
 			}
 		}
 
-		assertEquals("Unexpected Filesize!", "7 Byte", UtilFile.getSizeAsString(testFile));
+		assertEquals("Unexpected Filesize!", "7 Byte", UtilFile.getSizeAsString(testFile,context));
 
 		UtilFile.deleteDirectory(testDirectory);
 	}
@@ -132,6 +134,7 @@ public class UtilFileTest extends InstrumentationTestCase {
 		Sprite sprite = new Sprite("new sprite");
 		project.addSprite(sprite);
 		StorageHandler.getInstance().saveProject(project);
+
 
 		File catroidDirectoryFile = new File(CATROID_DIRECTORY);
 		File project1Directory = new File(catroidDirectoryFile + "/" + projectName);

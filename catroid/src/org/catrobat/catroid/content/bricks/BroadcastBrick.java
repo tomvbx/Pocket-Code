@@ -94,6 +94,7 @@ public class BroadcastBrick extends BrickBaseType implements BroadcastMessage {
 			alphaValue = 255;
 		}
 		view = View.inflate(context, R.layout.brick_broadcast, null);
+
 		view = getViewWithAlpha(alphaValue);
 		setCheckboxView(R.id.brick_broadcast_checkbox);
 
@@ -162,7 +163,6 @@ public class BroadcastBrick extends BrickBaseType implements BroadcastMessage {
 			View layout = view.findViewById(R.id.brick_broadcast_layout);
 			Drawable background = layout.getBackground();
 			background.setAlpha(alphaValue);
-
 			TextView textBroadcastLabel = (TextView) view.findViewById(R.id.brick_broadcast_label);
 			textBroadcastLabel.setTextColor(textBroadcastLabel.getTextColors().withAlpha(alphaValue));
 			Spinner broadcastSpinner = (Spinner) view.findViewById(R.id.brick_broadcast_spinner);
@@ -173,6 +173,7 @@ public class BroadcastBrick extends BrickBaseType implements BroadcastMessage {
 			}
 
 			this.alphaValue = alphaValue;
+
 		}
 
 		return view;

@@ -1,4 +1,4 @@
-package org.catrobat.catroid.Localization;
+package org.catrobat.catroid.Localization.LookBricks;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +12,14 @@ import org.catrobat.catroid.content.Script;
 import org.catrobat.catroid.content.Sprite;
 import org.catrobat.catroid.content.StartScript;
 import org.catrobat.catroid.content.bricks.Brick;
-import org.catrobat.catroid.content.bricks.ChangeVolumeByNBrick;
-import org.catrobat.catroid.content.bricks.ForeverBrick;
-import org.catrobat.catroid.content.bricks.IfLogicBeginBrick;
-import org.catrobat.catroid.content.bricks.LoopEndBrick;
-import org.catrobat.catroid.content.bricks.LoopEndlessBrick;
-import org.catrobat.catroid.content.bricks.NoteBrick;
-import org.catrobat.catroid.content.bricks.PlaySoundBrick;
-import org.catrobat.catroid.content.bricks.RepeatBrick;
-import org.catrobat.catroid.content.bricks.SetVolumeToBrick;
-import org.catrobat.catroid.content.bricks.SpeakBrick;
-import org.catrobat.catroid.content.bricks.StopAllSoundsBrick;
-import org.catrobat.catroid.content.bricks.WaitBrick;
-import org.catrobat.catroid.content.bricks.WhenBrick;
-import org.catrobat.catroid.content.bricks.WhenStartedBrick;
+import org.catrobat.catroid.content.bricks.ChangeBrightnessByNBrick;
+import org.catrobat.catroid.content.bricks.ChangeSizeByNBrick;
+import org.catrobat.catroid.content.bricks.ChangeTransparencyByNBrick;
+import org.catrobat.catroid.content.bricks.ClearGraphicEffectBrick;
+import org.catrobat.catroid.content.bricks.HideBrick;
+import org.catrobat.catroid.content.bricks.SetBrightnessBrick;
+import org.catrobat.catroid.content.bricks.SetTransparencyBrick;
+import org.catrobat.catroid.content.bricks.ShowBrick;
 import org.catrobat.catroid.ui.ScriptActivity;
 import org.catrobat.catroid.uitest.util.BaseActivityInstrumentationTestCase;
 import org.catrobat.catroid.uitest.util.UiTestUtils;
@@ -37,19 +31,23 @@ import java.util.List;
 /**
  * Created by Aiman Awwad on 9/27/2016.
  */
-public class SoundBricksMirroringTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
+public class LookBricksMirroringTest extends BaseActivityInstrumentationTestCase<ScriptActivity> {
 
     private Project project;
     List<Class<? extends Brick>> bricks = new ArrayList<Class<? extends Brick>>();
 
-    public SoundBricksMirroringTest() {
+    public LookBricksMirroringTest() {
         super(ScriptActivity.class);
-        bricks.add(ChangeVolumeByNBrick.class);
-        bricks.add(PlaySoundBrick.class);
-        bricks.add(SetVolumeToBrick.class);
-        bricks.add(SpeakBrick.class);
-        bricks.add(StopAllSoundsBrick.class);
-
+        bricks.add(ChangeBrightnessByNBrick.class);
+        bricks.add(ChangeTransparencyByNBrick.class);
+        bricks.add(ClearGraphicEffectBrick.class);
+        bricks.add(SetBrightnessBrick.class);
+        bricks.add(SetTransparencyBrick.class);
+        bricks.add(ChangeSizeByNBrick.class);
+        bricks.add(HideBrick.class);
+        bricks.add(ShowBrick.class);
+        bricks.add(ChangeSizeByNBrick.class);
+        bricks.add(ShowBrick.class);
     }
 
     @Override

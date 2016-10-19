@@ -3,6 +3,7 @@ package org.catrobat.catroid.Localization;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.espresso.ViewAssertion;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
@@ -24,7 +25,6 @@ public class LayoutDirectionAssertions {
     private static class LayoutDirectionMatcher extends BaseMatcher<View> {
 
         private int layoutDirection;
-
         public LayoutDirectionMatcher(int layoutDirection) {
             this.layoutDirection = layoutDirection;
         }

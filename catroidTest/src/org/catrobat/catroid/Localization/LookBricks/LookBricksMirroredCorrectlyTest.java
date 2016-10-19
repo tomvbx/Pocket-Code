@@ -1,3 +1,5 @@
+
+
 package org.catrobat.catroid.Localization.LookBricks;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Espresso;
@@ -26,6 +28,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.catrobat.catroid.Localization.MirroringAssertions.UserBrickLayoutShouldBeMirrored;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.hamcrest.text.StringContainsInOrder.stringContainsInOrder;
@@ -35,13 +38,13 @@ import static org.hamcrest.text.StringContainsInOrder.stringContainsInOrder;
  */
 @RunWith(AndroidJUnit4.class)
 
-public class LookBricksDisplayTest extends ActivityInstrumentationTestCase2<MainMenuActivity> {
+public class LookBricksMirroredCorrectlyTest extends ActivityInstrumentationTestCase2<MainMenuActivity> {
 
     private MainMenuActivity mActivity;
     private Sprite sprite1,sprite2;
 
 
-    public LookBricksDisplayTest() {
+    public LookBricksMirroredCorrectlyTest() {
         super(MainMenuActivity.class);
     }
     @Before
@@ -63,54 +66,54 @@ public class LookBricksDisplayTest extends ActivityInstrumentationTestCase2<Main
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(withText(R.string.brick_set_look)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_set_look)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_set_look_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
 
         Espresso.onView(withId(R.id.button_add)).perform(click());
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(withText(R.string.brick_next_look)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_next_look)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_next_look_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
 
 
         Espresso.onView(withId(R.id.button_add)).perform(click());
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(withText(R.string.brick_change_size_by)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_change_size_by)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_change_size_by_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
 
         Espresso.onView(withId(R.id.button_add)).perform(click());
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(withText(R.string.brick_hide)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_hide)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_hide_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
 
         Espresso.onView(withId(R.id.button_add)).perform(click());
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
         Espresso.onView(withText(R.string.brick_show)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_show)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_show_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
 
         Espresso.onView(withId(R.id.button_add)).perform(click());
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
         Espresso.onView(withText(R.string.brick_set_transparency)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_set_transparency)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_set_transparency_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
 
         Espresso.onView(withId(R.id.button_add)).perform(click());
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
         Espresso.onView(withText(R.string.brick_change_brightness)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_change_brightness)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_change_brightness_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
 
         Espresso.onView(withId(R.id.button_add)).perform(click());
         Espresso.onView(withText(R.string.category_looks)).perform(click());
         Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
         Espresso.onView(withText(R.string.brick_clear_graphic_effect)).perform(click());
         Espresso.onView(isRoot()).perform(click());
-        Espresso.onView(withText(R.string.brick_clear_graphic_effect)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.brick_clear_graphic_effect_layout)).check(matches(UserBrickLayoutShouldBeMirrored(Boolean.TRUE)));
     }
 
     private void createProject() {
@@ -129,3 +132,4 @@ public class LookBricksDisplayTest extends ActivityInstrumentationTestCase2<Main
     }
 
 }
+

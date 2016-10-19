@@ -1,4 +1,4 @@
-package org.catrobat.catroid.Localization.ControlBricks;
+package org.catrobat.catroid.Localization.SoundBricks;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.action.ViewActions;
@@ -18,29 +18,31 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
-import static android.support.test.espresso.assertion.LayoutAssertions.noOverlaps;
+import static android.support.test.espresso.assertion.LayoutAssertions.noEllipsizedText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.catrobat.catroid.Localization.LayoutDirectionAssertions.isLayoutDirectionRTL;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
+import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.hamcrest.text.StringContainsInOrder.stringContainsInOrder;
 
 /**
- * Created by Aiman Awwad on 9/27/2016.
+ * Created by Aiman Awwad on 10/17/2016.
  */
 @RunWith(AndroidJUnit4.class)
 
-public class ControlBricksDisplayTest extends ActivityInstrumentationTestCase2<MainMenuActivity> {
+public class SoundBricksNoNullValueTest extends ActivityInstrumentationTestCase2<MainMenuActivity> {
 
     private MainMenuActivity mActivity;
     private Sprite sprite1,sprite2;
 
 
-    public ControlBricksDisplayTest() {
+    public SoundBricksNoNullValueTest() {
         super(MainMenuActivity.class);
     }
     @Before
@@ -59,44 +61,29 @@ public class ControlBricksDisplayTest extends ActivityInstrumentationTestCase2<M
 
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast_receive)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_sound)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_play_sound)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast_receive)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_play_sound)).check(matches(notNullValue()));
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_when)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_sound)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_stop_all_sounds)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_when)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_stop_all_sounds)).check(matches(notNullValue()));
 
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_sound)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_change_volume_by)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_change_volume_by)).check(matches(notNullValue()));
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_wait)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_sound)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_speak)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_wait)).check(matches(isDisplayed()));
-
-        Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
-        Espresso.onView(withText(R.string.brick_note)).perform(ViewActions.click());
-        Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_note)).check(matches(isDisplayed()));
-
-        Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
-        Espresso.onView(withText(R.string.brick_repeat)).perform(ViewActions.click());
-        Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_repeat)).check(matches(isDisplayed()));
-
+        Espresso.onView(withText(R.string.brick_speak)).check(matches(notNullValue()));
 
     }
 
@@ -117,3 +104,4 @@ public class ControlBricksDisplayTest extends ActivityInstrumentationTestCase2<M
 
 
 }
+

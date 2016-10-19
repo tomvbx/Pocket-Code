@@ -85,11 +85,11 @@ public class MainMenuActivityTest extends ActivityInstrumentationTestCase2<MainM
 		injectInstrumentation(InstrumentationRegistry.getInstrumentation());
 		mActivity = getActivity();
 		continueButton =Espresso.onView(withId(R.id.main_menu_button_continue));
-		newButton =Espresso.onView(withId(R.id.main_menu_button_continue));
-		programsButton =Espresso.onView(withId(R.id.main_menu_button_continue));
-		helpButton =Espresso.onView(withId(R.id.main_menu_button_continue));
-		webButton =Espresso.onView(withId(R.id.main_menu_button_continue));
-		uploadButton =Espresso.onView(withId(R.id.main_menu_button_continue));
+		newButton =Espresso.onView(withId(R.id.main_menu_button_new));
+		programsButton =Espresso.onView(withId(R.id.main_menu_button_programs));
+		helpButton =Espresso.onView(withId(R.id.main_menu_button_help));
+		webButton =Espresso.onView(withId(R.id.main_menu_button_web));
+		uploadButton =Espresso.onView(withId(R.id.main_menu_button_upload));
 	}
 
 	@Test

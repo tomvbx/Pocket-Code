@@ -1,4 +1,4 @@
-package org.catrobat.catroid.Localization.ControlBricks;
+package org.catrobat.catroid.Localization.MotionBricks;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.action.ViewActions;
@@ -17,30 +17,27 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
-import static android.support.test.espresso.assertion.LayoutAssertions.noOverlaps;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.catrobat.catroid.Localization.LayoutDirectionAssertions.isLayoutDirectionRTL;
+import static org.catrobat.catroid.Localization.TextDirectionAssertions.isTextDirectionRTL;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.hamcrest.text.StringContainsInOrder.stringContainsInOrder;
 
 /**
- * Created by Aiman Awwad on 9/27/2016.
+ * Created by Aiman Awwad on 10/04/2016.
  */
 @RunWith(AndroidJUnit4.class)
-
-public class ControlBricksDisplayTest extends ActivityInstrumentationTestCase2<MainMenuActivity> {
+public class MotionBricksTextDirectionTest extends ActivityInstrumentationTestCase2<MainMenuActivity> {
 
     private MainMenuActivity mActivity;
     private Sprite sprite1,sprite2;
 
 
-    public ControlBricksDisplayTest() {
+    public MotionBricksTextDirectionTest() {
         super(MainMenuActivity.class);
     }
     @Before
@@ -51,7 +48,7 @@ public class ControlBricksDisplayTest extends ActivityInstrumentationTestCase2<M
         mActivity = getActivity();
     }
     @Test
-    public void assertBricksIsDisplayedCorrectlyInRTLMode()
+    public void assertTextDirectionIsRTL()
     {
         Espresso.onView(withId(R.id.main_menu_button_continue)).perform(ViewActions.click());
         Espresso.onView(withText("كائن1")).perform(ViewActions.click());
@@ -59,45 +56,56 @@ public class ControlBricksDisplayTest extends ActivityInstrumentationTestCase2<M
 
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast_receive)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_place_at)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast_receive)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_place_at)).check(isTextDirectionRTL());
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_when)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_set_x)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_when)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_set_x)).check(isTextDirectionRTL());
 
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_set_y)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_broadcast)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_set_y)).check(isTextDirectionRTL());
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_wait)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_change_x_by)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_wait)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_change_x_by)).check(isTextDirectionRTL());
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_move)).perform(ViewActions.click());
+        Espresso.onView(isRoot()).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_move)).check(isTextDirectionRTL());
+
+        Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
-        Espresso.onView(withText(R.string.brick_note)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_point_in_direction)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_note)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_point_in_direction)).check(isTextDirectionRTL());
 
         Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.category_control)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
-        Espresso.onView(withText(R.string.brick_repeat)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_turn_right)).perform(ViewActions.click());
         Espresso.onView(isRoot()).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.brick_repeat)).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.brick_turn_right)).check(isTextDirectionRTL());
 
-
+        Espresso.onView(withId(R.id.button_add)).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.category_motion)).perform(ViewActions.click());
+        Espresso.onView(isRoot()).perform(ViewActions.swipeUp());
+        Espresso.onView(withText(R.string.brick_glide)).perform(ViewActions.click());
+        Espresso.onView(isRoot()).perform(ViewActions.click());
+        Espresso.onView(withText(R.string.brick_glide)).check(isTextDirectionRTL());
     }
 
     private void createProject() {
